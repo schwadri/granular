@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:test/dump2gabriel/dump2gabriel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/granular_vis/granular_vis.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/graph_coloring/graph_coloring.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/thread_test/thread_test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/beads_grid/beads_grid.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/granular/granular.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/chrono_test/chrono_test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/bitonic_sort/bitonic_sort.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/barrier_test/barrier_test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/broadphase_2d/broadphase_2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/gravity_and_gyro_kernel_test/gravity_and_gyro_kernel_test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:test/euler_parallel/euler_parallel.xcodeproj">
+   </FileRef>
+</Workspace>

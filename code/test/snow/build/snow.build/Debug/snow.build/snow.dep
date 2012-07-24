@@ -1,0 +1,5 @@
+000000004eca27740000000000000765 32f62f2583851063b9d0468924b83c08 ffffffffffffffffffffffffffffffff 27016 /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/program.o
+0000000048e578350000000000026688 2e0ec11f62ab521cb554a66feb509a0d ffffffffffffffffffffffffffffffff 28108 /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/shader.o
+0000000048e550a6000000000002615e ee4736fcaccea48053d7e706030b33b0 ffffffffffffffffffffffffffffffff 10344 /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/buffer.o
+000000000163969c000000000002a3dd ce743b8b30a32fa2e260e84553484558 ffffffffffffffffffffffffffffffff 240816 /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/gl_cl_sharing.o
+3ccbe34d316fe6a4bd33efa59fbd221d 1f0a45c31f919da08d56386961066d6b ffffffffffffffffffffffffffffffff 149848 /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/snow

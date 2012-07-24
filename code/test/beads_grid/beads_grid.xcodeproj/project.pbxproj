@@ -1,0 +1,231 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47B5EFFB15ADD3DF0059A966 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47B5EFFA15ADD3DF0059A966 /* main.cpp */; };
+		47B5F00415ADD4F40059A966 /* time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47B5F00315ADD4F40059A966 /* time.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		47B5EFF415ADD3DF0059A966 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		47B5EFF615ADD3DF0059A966 /* beads_grid */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = beads_grid; sourceTree = BUILT_PRODUCTS_DIR; };
+		47B5EFFA15ADD3DF0059A966 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		47B5F00315ADD4F40059A966 /* time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = time.cpp; path = ../../../core/time/time.cpp; sourceTree = "<group>"; };
+		47B5F00515ADD59C0059A966 /* math.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = math.hpp; sourceTree = "<group>"; };
+		47B5F00615ADD59C0059A966 /* progress_bar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = progress_bar.hpp; sourceTree = "<group>"; };
+		47B5F00815ADD5A30059A966 /* linalg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = linalg.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47B5EFF315ADD3DF0059A966 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47B5EFEB15ADD3DF0059A966 = {
+			isa = PBXGroup;
+			children = (
+				47B5EFF915ADD3DF0059A966 /* beads_grid */,
+				47B5EFF715ADD3DF0059A966 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47B5EFF715ADD3DF0059A966 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47B5EFF615ADD3DF0059A966 /* beads_grid */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47B5EFF915ADD3DF0059A966 /* beads_grid */ = {
+			isa = PBXGroup;
+			children = (
+				47B5F00515ADD59C0059A966 /* math.hpp */,
+				47B5F00615ADD59C0059A966 /* progress_bar.hpp */,
+				47B5F00315ADD4F40059A966 /* time.cpp */,
+				47B5EFFA15ADD3DF0059A966 /* main.cpp */,
+				47B5F00715ADD5A30059A966 /* math */,
+			);
+			path = beads_grid;
+			sourceTree = "<group>";
+		};
+		47B5F00715ADD5A30059A966 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				47B5F00815ADD5A30059A966 /* linalg.hpp */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47B5EFF515ADD3DF0059A966 /* beads_grid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47B5F00015ADD3DF0059A966 /* Build configuration list for PBXNativeTarget "beads_grid" */;
+			buildPhases = (
+				47B5EFF215ADD3DF0059A966 /* Sources */,
+				47B5EFF315ADD3DF0059A966 /* Frameworks */,
+				47B5EFF415ADD3DF0059A966 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = beads_grid;
+			productName = beads_grid;
+			productReference = 47B5EFF615ADD3DF0059A966 /* beads_grid */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47B5EFED15ADD3DF0059A966 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 47B5EFF015ADD3DF0059A966 /* Build configuration list for PBXProject "beads_grid" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47B5EFEB15ADD3DF0059A966;
+			productRefGroup = 47B5EFF715ADD3DF0059A966 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47B5EFF515ADD3DF0059A966 /* beads_grid */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47B5EFF215ADD3DF0059A966 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47B5EFFB15ADD3DF0059A966 /* main.cpp in Sources */,
+				47B5F00415ADD4F40059A966 /* time.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		47B5EFFE15ADD3DF0059A966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		47B5EFFF15ADD3DF0059A966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		47B5F00115ADD3DF0059A966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../ext/boost_1_49_0,
+					../../,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		47B5F00215ADD3DF0059A966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../ext/boost_1_49_0,
+					../../,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47B5EFF015ADD3DF0059A966 /* Build configuration list for PBXProject "beads_grid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47B5EFFE15ADD3DF0059A966 /* Debug */,
+				47B5EFFF15ADD3DF0059A966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47B5F00015ADD3DF0059A966 /* Build configuration list for PBXNativeTarget "beads_grid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47B5F00115ADD3DF0059A966 /* Debug */,
+				47B5F00215ADD3DF0059A966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47B5EFED15ADD3DF0059A966 /* Project object */;
+}

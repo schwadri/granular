@@ -1,0 +1,207 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		478C5A6A15B2F39600B26EFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 478C5A6915B2F39600B26EFD /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		478C5A6315B2F39600B26EFD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		478C5A6515B2F39600B26EFD /* graph_coloring */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = graph_coloring; sourceTree = BUILT_PRODUCTS_DIR; };
+		478C5A6915B2F39600B26EFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		478C5A6215B2F39600B26EFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		478C5A5A15B2F39500B26EFD = {
+			isa = PBXGroup;
+			children = (
+				478C5A6815B2F39600B26EFD /* graph_coloring */,
+				478C5A6615B2F39600B26EFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		478C5A6615B2F39600B26EFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				478C5A6515B2F39600B26EFD /* graph_coloring */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		478C5A6815B2F39600B26EFD /* graph_coloring */ = {
+			isa = PBXGroup;
+			children = (
+				478C5A6915B2F39600B26EFD /* main.cpp */,
+			);
+			path = graph_coloring;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		478C5A6415B2F39600B26EFD /* graph_coloring */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 478C5A6F15B2F39600B26EFD /* Build configuration list for PBXNativeTarget "graph_coloring" */;
+			buildPhases = (
+				478C5A6115B2F39600B26EFD /* Sources */,
+				478C5A6215B2F39600B26EFD /* Frameworks */,
+				478C5A6315B2F39600B26EFD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = graph_coloring;
+			productName = graph_coloring;
+			productReference = 478C5A6515B2F39600B26EFD /* graph_coloring */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		478C5A5C15B2F39500B26EFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 478C5A5F15B2F39500B26EFD /* Build configuration list for PBXProject "graph_coloring" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 478C5A5A15B2F39500B26EFD;
+			productRefGroup = 478C5A6615B2F39600B26EFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				478C5A6415B2F39600B26EFD /* graph_coloring */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		478C5A6115B2F39600B26EFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				478C5A6A15B2F39600B26EFD /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		478C5A6D15B2F39600B26EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		478C5A6E15B2F39600B26EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		478C5A7015B2F39600B26EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = ../../ext/boost_1_50_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		478C5A7115B2F39600B26EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = ../../ext/boost_1_50_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		478C5A5F15B2F39500B26EFD /* Build configuration list for PBXProject "graph_coloring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				478C5A6D15B2F39600B26EFD /* Debug */,
+				478C5A6E15B2F39600B26EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		478C5A6F15B2F39600B26EFD /* Build configuration list for PBXNativeTarget "graph_coloring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				478C5A7015B2F39600B26EFD /* Debug */,
+				478C5A7115B2F39600B26EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 478C5A5C15B2F39500B26EFD /* Project object */;
+}

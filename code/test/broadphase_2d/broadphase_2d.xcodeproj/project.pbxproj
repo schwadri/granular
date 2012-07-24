@@ -1,0 +1,223 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47A7942F15A5C77A0075A46A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47A7942E15A5C77A0075A46A /* main.cpp */; };
+		47A7943815A5CB120075A46A /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A7943715A5CB120075A46A /* OpenCL.framework */; };
+		47A7943A15A5CB3F0075A46A /* broadphase.cl in Sources */ = {isa = PBXBuildFile; fileRef = 47A7943915A5CB3F0075A46A /* broadphase.cl */; };
+		47A7943B15A5CB4D0075A46A /* broadphase.cl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47A7943915A5CB3F0075A46A /* broadphase.cl */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		47A7942815A5C77A0075A46A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				47A7943B15A5CB4D0075A46A /* broadphase.cl in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		47A7942A15A5C77A0075A46A /* broadphase_2d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = broadphase_2d; sourceTree = BUILT_PRODUCTS_DIR; };
+		47A7942E15A5C77A0075A46A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		47A7943715A5CB120075A46A /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = /Users/schwadri/Documents/projects/phd/gpgpu/code/test/barrier_test/../../../../../../../../../System/Library/Frameworks/OpenCL.framework; sourceTree = "<absolute>"; };
+		47A7943915A5CB3F0075A46A /* broadphase.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; path = broadphase.cl; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47A7942715A5C77A0075A46A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A7943815A5CB120075A46A /* OpenCL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47A7941F15A5C77A0075A46A = {
+			isa = PBXGroup;
+			children = (
+				47A7943715A5CB120075A46A /* OpenCL.framework */,
+				47A7942D15A5C77A0075A46A /* broadphase_2d */,
+				47A7942B15A5C77A0075A46A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47A7942B15A5C77A0075A46A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47A7942A15A5C77A0075A46A /* broadphase_2d */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47A7942D15A5C77A0075A46A /* broadphase_2d */ = {
+			isa = PBXGroup;
+			children = (
+				47A7943915A5CB3F0075A46A /* broadphase.cl */,
+				47A7942E15A5C77A0075A46A /* main.cpp */,
+			);
+			path = broadphase_2d;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47A7942915A5C77A0075A46A /* broadphase_2d */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47A7943415A5C77A0075A46A /* Build configuration list for PBXNativeTarget "broadphase_2d" */;
+			buildPhases = (
+				47A7942615A5C77A0075A46A /* Sources */,
+				47A7942715A5C77A0075A46A /* Frameworks */,
+				47A7942815A5C77A0075A46A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = broadphase_2d;
+			productName = broadphase_2d;
+			productReference = 47A7942A15A5C77A0075A46A /* broadphase_2d */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47A7942115A5C77A0075A46A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 47A7942415A5C77A0075A46A /* Build configuration list for PBXProject "broadphase_2d" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47A7941F15A5C77A0075A46A;
+			productRefGroup = 47A7942B15A5C77A0075A46A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47A7942915A5C77A0075A46A /* broadphase_2d */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47A7942615A5C77A0075A46A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A7942F15A5C77A0075A46A /* main.cpp in Sources */,
+				47A7943A15A5CB3F0075A46A /* broadphase.cl in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		47A7943215A5C77A0075A46A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		47A7943315A5C77A0075A46A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		47A7943515A5C77A0075A46A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/System/Library/Frameworks,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		47A7943615A5C77A0075A46A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/System/Library/Frameworks,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47A7942415A5C77A0075A46A /* Build configuration list for PBXProject "broadphase_2d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47A7943215A5C77A0075A46A /* Debug */,
+				47A7943315A5C77A0075A46A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47A7943415A5C77A0075A46A /* Build configuration list for PBXNativeTarget "broadphase_2d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47A7943515A5C77A0075A46A /* Debug */,
+				47A7943615A5C77A0075A46A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47A7942115A5C77A0075A46A /* Project object */;
+}

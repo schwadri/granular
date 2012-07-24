@@ -1,0 +1,218 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47AEEE6815A1ECB500DB9028 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEEE6715A1ECB500DB9028 /* OpenCL.framework */; };
+		47AEEE6A15A1EDA800DB9028 /* euler.cl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47AEEE6915A1EDA800DB9028 /* euler.cl */; };
+		47CC382515A4AA4C00AEC27F /* main2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4736EA1415A3575D000DF482 /* main2.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		47AEEE5815A1EBB400DB9028 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				47AEEE6A15A1EDA800DB9028 /* euler.cl in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4736EA1415A3575D000DF482 /* main2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main2.cpp; sourceTree = "<group>"; };
+		47AEEE5A15A1EBB400DB9028 /* euler_parallel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = euler_parallel; sourceTree = BUILT_PRODUCTS_DIR; };
+		47AEEE5E15A1EBB400DB9028 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		47AEEE6715A1ECB500DB9028 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = ../../../../../../../../../System/Library/Frameworks/OpenCL.framework; sourceTree = "<group>"; };
+		47AEEE6915A1EDA800DB9028 /* euler.cl */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.opencl; path = euler.cl; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47AEEE5715A1EBB400DB9028 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47AEEE6815A1ECB500DB9028 /* OpenCL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47AEEE4F15A1EBB400DB9028 = {
+			isa = PBXGroup;
+			children = (
+				47AEEE6715A1ECB500DB9028 /* OpenCL.framework */,
+				47AEEE5D15A1EBB400DB9028 /* euler_parallel */,
+				47AEEE5B15A1EBB400DB9028 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47AEEE5B15A1EBB400DB9028 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47AEEE5A15A1EBB400DB9028 /* euler_parallel */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47AEEE5D15A1EBB400DB9028 /* euler_parallel */ = {
+			isa = PBXGroup;
+			children = (
+				47AEEE6915A1EDA800DB9028 /* euler.cl */,
+				47AEEE5E15A1EBB400DB9028 /* main.cpp */,
+				4736EA1415A3575D000DF482 /* main2.cpp */,
+			);
+			path = euler_parallel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47AEEE5915A1EBB400DB9028 /* euler_parallel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47AEEE6415A1EBB400DB9028 /* Build configuration list for PBXNativeTarget "euler_parallel" */;
+			buildPhases = (
+				47AEEE5615A1EBB400DB9028 /* Sources */,
+				47AEEE5715A1EBB400DB9028 /* Frameworks */,
+				47AEEE5815A1EBB400DB9028 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = euler_parallel;
+			productName = euler_parallel;
+			productReference = 47AEEE5A15A1EBB400DB9028 /* euler_parallel */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47AEEE5115A1EBB400DB9028 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 47AEEE5415A1EBB400DB9028 /* Build configuration list for PBXProject "euler_parallel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47AEEE4F15A1EBB400DB9028;
+			productRefGroup = 47AEEE5B15A1EBB400DB9028 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47AEEE5915A1EBB400DB9028 /* euler_parallel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47AEEE5615A1EBB400DB9028 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47CC382515A4AA4C00AEC27F /* main2.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		47AEEE6215A1EBB400DB9028 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		47AEEE6315A1EBB400DB9028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		47AEEE6515A1EBB400DB9028 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		47AEEE6615A1EBB400DB9028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47AEEE5415A1EBB400DB9028 /* Build configuration list for PBXProject "euler_parallel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47AEEE6215A1EBB400DB9028 /* Debug */,
+				47AEEE6315A1EBB400DB9028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47AEEE6415A1EBB400DB9028 /* Build configuration list for PBXNativeTarget "euler_parallel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47AEEE6515A1EBB400DB9028 /* Debug */,
+				47AEEE6615A1EBB400DB9028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47AEEE5115A1EBB400DB9028 /* Project object */;
+}

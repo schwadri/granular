@@ -1,0 +1,231 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4744529415A71C2F00D863F8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4744529315A71C2F00D863F8 /* main.cpp */; };
+		474452A115A72E0000D863F8 /* libboost_timer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 474452A015A72E0000D863F8 /* libboost_timer.a */; };
+		474452A215A7301200D863F8 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4744529C15A71CC900D863F8 /* libboost_system.a */; };
+		474452A315A7301B00D863F8 /* libboost_chrono.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4744529E15A71FB500D863F8 /* libboost_chrono.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4744528D15A71C2F00D863F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4744528F15A71C2F00D863F8 /* chrono_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chrono_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		4744529315A71C2F00D863F8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4744529C15A71CC900D863F8 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = "../../ext/boost_1_49_0/bin.v2/libs/system/build/darwin-4.2.1/release/link-static/threading-multi/libboost_system.a"; sourceTree = "<group>"; };
+		4744529E15A71FB500D863F8 /* libboost_chrono.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_chrono.a; path = "../../ext/boost_1_49_0/bin.v2/libs/chrono/build/darwin-4.2.1/release/link-static/threading-multi/libboost_chrono.a"; sourceTree = "<group>"; };
+		474452A015A72E0000D863F8 /* libboost_timer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_timer.a; path = "../../ext/boost_1_49_0/bin.v2/libs/timer/build/darwin-4.2.1/release/link-static/threading-multi/libboost_timer.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4744528C15A71C2F00D863F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474452A115A72E0000D863F8 /* libboost_timer.a in Frameworks */,
+				474452A215A7301200D863F8 /* libboost_system.a in Frameworks */,
+				474452A315A7301B00D863F8 /* libboost_chrono.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4744528415A71C2F00D863F8 = {
+			isa = PBXGroup;
+			children = (
+				474452A015A72E0000D863F8 /* libboost_timer.a */,
+				4744529C15A71CC900D863F8 /* libboost_system.a */,
+				4744529E15A71FB500D863F8 /* libboost_chrono.a */,
+				4744529215A71C2F00D863F8 /* chrono_test */,
+				4744529015A71C2F00D863F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4744529015A71C2F00D863F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4744528F15A71C2F00D863F8 /* chrono_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4744529215A71C2F00D863F8 /* chrono_test */ = {
+			isa = PBXGroup;
+			children = (
+				4744529315A71C2F00D863F8 /* main.cpp */,
+			);
+			path = chrono_test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4744528E15A71C2F00D863F8 /* chrono_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4744529915A71C2F00D863F8 /* Build configuration list for PBXNativeTarget "chrono_test" */;
+			buildPhases = (
+				4744528B15A71C2F00D863F8 /* Sources */,
+				4744528C15A71C2F00D863F8 /* Frameworks */,
+				4744528D15A71C2F00D863F8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chrono_test;
+			productName = chrono_test;
+			productReference = 4744528F15A71C2F00D863F8 /* chrono_test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4744528615A71C2F00D863F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 4744528915A71C2F00D863F8 /* Build configuration list for PBXProject "chrono_test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4744528415A71C2F00D863F8;
+			productRefGroup = 4744529015A71C2F00D863F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4744528E15A71C2F00D863F8 /* chrono_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4744528B15A71C2F00D863F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4744529415A71C2F00D863F8 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4744529715A71C2F00D863F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../ext/boost_1_49_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4744529815A71C2F00D863F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../ext/boost_1_49_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4744529A15A71C2F00D863F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/system/build/darwin-4.2.1/release/link-static/threading-multi\"",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/chrono/build/darwin-4.2.1/release/link-static/threading-multi\"",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/timer/build/darwin-4.2.1/release/link-static/threading-multi\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4744529B15A71C2F00D863F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/system/build/darwin-4.2.1/release/link-static/threading-multi\"",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/chrono/build/darwin-4.2.1/release/link-static/threading-multi\"",
+					"\"$(SRCROOT)/../../ext/boost_1_49_0/bin.v2/libs/timer/build/darwin-4.2.1/release/link-static/threading-multi\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4744528915A71C2F00D863F8 /* Build configuration list for PBXProject "chrono_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4744529715A71C2F00D863F8 /* Debug */,
+				4744529815A71C2F00D863F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4744529915A71C2F00D863F8 /* Build configuration list for PBXNativeTarget "chrono_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4744529A15A71C2F00D863F8 /* Debug */,
+				4744529B15A71C2F00D863F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4744528615A71C2F00D863F8 /* Project object */;
+}

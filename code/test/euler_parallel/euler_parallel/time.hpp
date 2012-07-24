@@ -1,0 +1,63 @@
+#ifndef _util_time_hpp_
+#define _util_time_hpp_
+
+#include <iosfwd>
+#include <tr1/cstdint>
+#include <sys/time.h>
+
+namespace util {
+  struct time_pos {
+
+    typedef std::tr1::int64_t sec_t;
+    typedef std::tr1::int64_t usec_t;
+
+    static usec_t const MICRO_SECONDS_PER_SECOND = 1000000;
+
+    time_pos() {
+      timeval tv;
+      gettimeofday(&tv, NULL);
+      seconds       = tv.tv_sec;
+      micro_seconds = tv.tv_usec;
+    }
+
+    sec_t   seconds;
+    usec_t  micro_seconds;
+  };
+
+  struct duration {
+    typedef std::tr1::int64_t sec_t;
+    typedef std::tr1::int64_t usec_t;
+    sec_t   seconds;
+    usec_t  micro_seconds;
+  };
+
+  inline duration operator - (time_pos const & t1, time_pos const & t0) {
+    duration r;
+    r.seconds       = t1.seconds        - t0.seconds;
+    r.micro_seconds = t1.micro_seconds  - t0.micro_seconds;
+    if(r.micro_seconds < 0) {
+      --r.seconds;
+      r.micro_seconds += time_pos::MICRO_SECONDS_PER_SECOND;
+    }
+    return r;
+  }
+
+  template<class _CharT, class _Traits>
+    std::basic_ostream<_CharT, _Traits>&  operator << (
+        std::basic_ostream<_CharT, _Traits>& out, time_pos const & t
+    ) {
+      out << "[ " << t.seconds << " sec, " << t.micro_seconds << " usec]";
+      return out;
+    }
+
+  template<class _CharT, class _Traits>
+    std::basic_ostream<_CharT, _Traits>&  operator << (
+        std::basic_ostream<_CharT, _Traits>& out, duration const & dt
+    ) {
+      out << "[ " << dt.seconds << " sec, " << dt.micro_seconds << " usec]";
+      return out;
+    }
+
+
+}
+#endif // _util_time_hpp_

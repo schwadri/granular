@@ -1,0 +1,223 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4785519515A4EDC2009AD8C4 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4785519415A4EDC2009AD8C4 /* OpenCL.framework */; };
+		4785519715A4F05C009AD8C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4785519615A4F05C009AD8C4 /* main.cpp */; };
+		4785519915A4F06E009AD8C4 /* velocity_integrator.cl in Sources */ = {isa = PBXBuildFile; fileRef = 4785519815A4F06E009AD8C4 /* velocity_integrator.cl */; };
+		4785519A15A4F07A009AD8C4 /* velocity_integrator.cl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4785519815A4F06E009AD8C4 /* velocity_integrator.cl */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4785518515A4EDB4009AD8C4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				4785519A15A4F07A009AD8C4 /* velocity_integrator.cl in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4785518715A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gravity_and_gyro_kernel_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		4785519415A4EDC2009AD8C4 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = /Users/schwadri/Documents/projects/phd/gpgpu/code/test/barrier_test/../../../../../../../../../System/Library/Frameworks/OpenCL.framework; sourceTree = "<absolute>"; };
+		4785519615A4F05C009AD8C4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4785519815A4F06E009AD8C4 /* velocity_integrator.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; path = velocity_integrator.cl; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4785518415A4EDB4009AD8C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4785519515A4EDC2009AD8C4 /* OpenCL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4785517C15A4EDB4009AD8C4 = {
+			isa = PBXGroup;
+			children = (
+				4785519415A4EDC2009AD8C4 /* OpenCL.framework */,
+				4785518A15A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */,
+				4785518815A4EDB4009AD8C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4785518815A4EDB4009AD8C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4785518715A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4785518A15A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */ = {
+			isa = PBXGroup;
+			children = (
+				4785519815A4F06E009AD8C4 /* velocity_integrator.cl */,
+				4785519615A4F05C009AD8C4 /* main.cpp */,
+			);
+			path = gravity_and_gyro_kernel_test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4785518615A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4785519115A4EDB4009AD8C4 /* Build configuration list for PBXNativeTarget "gravity_and_gyro_kernel_test" */;
+			buildPhases = (
+				4785518315A4EDB4009AD8C4 /* Sources */,
+				4785518415A4EDB4009AD8C4 /* Frameworks */,
+				4785518515A4EDB4009AD8C4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gravity_and_gyro_kernel_test;
+			productName = gravity_and_gyro_kernel_test;
+			productReference = 4785518715A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4785517E15A4EDB4009AD8C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ETHZ;
+			};
+			buildConfigurationList = 4785518115A4EDB4009AD8C4 /* Build configuration list for PBXProject "gravity_and_gyro_kernel_test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4785517C15A4EDB4009AD8C4;
+			productRefGroup = 4785518815A4EDB4009AD8C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4785518615A4EDB4009AD8C4 /* gravity_and_gyro_kernel_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4785518315A4EDB4009AD8C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4785519715A4F05C009AD8C4 /* main.cpp in Sources */,
+				4785519915A4F06E009AD8C4 /* velocity_integrator.cl in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4785518F15A4EDB4009AD8C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4785519015A4EDB4009AD8C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4785519215A4EDB4009AD8C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/System/Library/Frameworks,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4785519315A4EDB4009AD8C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/System/Library/Frameworks,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4785518115A4EDB4009AD8C4 /* Build configuration list for PBXProject "gravity_and_gyro_kernel_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4785518F15A4EDB4009AD8C4 /* Debug */,
+				4785519015A4EDB4009AD8C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4785519115A4EDB4009AD8C4 /* Build configuration list for PBXNativeTarget "gravity_and_gyro_kernel_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4785519215A4EDB4009AD8C4 /* Debug */,
+				4785519315A4EDB4009AD8C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4785517E15A4EDB4009AD8C4 /* Project object */;
+}
