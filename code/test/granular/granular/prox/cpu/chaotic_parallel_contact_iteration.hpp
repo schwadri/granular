@@ -11,6 +11,7 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
+#include "../../contacts/independent_sets.hpp"
 
 /** \brief parallel cpu sor prox variant of multicolor parallel without per color thread synchronisation
  each contact has his own local iteration counter. Upon contact update a contact blocks his update
@@ -55,24 +56,10 @@ struct chaotic_parallel_contact_iteration_sor_prox {
                             index_t max_global_iterations_, index_t max_local_iterations_
                             );
   
-  void insert_into_independent_sets(
-                                    std::vector<index_t> &                      colors,
-                                    std::vector<std::vector<index_t> > const &  cliques,
-                                    independent_contact_set_container &         independent_sets,
-                                    index_t vid, collider::contact::key_type const & vertex
-                                    );
-  
   void collider_contact_to_solver_contact(
                                           granular_system const & sys,
                                           collider::contact const & c, contact & nc
-                                          );  
-  
-  void build_independent_contact_sets(
-                                      std::vector<collider::contact> const &      contacts,
-                                      std::vector<index_t> &                      colors,
-                                      std::vector<std::vector<index_t> > const &  cliques,
-                                      independent_contact_set_container &         independent_sets
-                                      );
+                                          );
   
   void distribute_work(
                        granular_system const & sys,

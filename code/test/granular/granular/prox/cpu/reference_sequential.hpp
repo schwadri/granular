@@ -11,6 +11,7 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
+#include "../../contacts/independent_sets.hpp"
 
 /** \brief sequential sor prox cpu reference implementation*/
 struct reference_sequential_sor_prox {
@@ -40,20 +41,6 @@ struct reference_sequential_sor_prox {
     granular_system const & sys,
     collider::contact const & c, contact & nc
   );
-  
-  void insert_into_independent_sets(
-                                    std::vector<index_t> &                      colors,
-                                    std::vector<std::vector<index_t> > const &  cliques,
-                                    independent_contact_set_container &         independent_sets,
-                                    index_t vid, collider::contact::key_type const & vertex
-                                    );
-  
-  void build_independent_contact_sets(
-                                      std::vector<collider::contact> const &      contacts,
-                                      std::vector<index_t> &                      colors,
-                                      std::vector<std::vector<index_t> > const &  cliques,
-                                      independent_contact_set_container &         independent_sets
-                                      );
 
   /*reorder contacts by color to match the contact order of the parallel version*/
   void reorder_contacts_by_colors(granular_system &                 sys,
