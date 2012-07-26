@@ -10,7 +10,7 @@
 		4707777715BEE186005DDE0E /* chaotic_parallel_contact_read_write_lock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4707777615BEE186005DDE0E /* chaotic_parallel_contact_read_write_lock.cpp */; };
 		4707777A15BEF562005DDE0E /* reference_sequential_no_g.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4707777915BEF562005DDE0E /* reference_sequential_no_g.cpp */; };
 		4707777E15BEFA1E005DDE0E /* independent_sets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4707777D15BEFA1E005DDE0E /* independent_sets.cpp */; };
-		472368B915BB21A200308395 /* reference_sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 472368B815BB21A200308395 /* reference_sequential.cpp */; };
+		472368B915BB21A200308395 /* reference_sequential_g.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 472368B815BB21A200308395 /* reference_sequential_g.cpp */; };
 		472368BC15BB46A300308395 /* chaotic_parallel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 472368BB15BB46A300308395 /* chaotic_parallel.cpp */; };
 		47342E2D15AEF2D9005198A2 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47342E2B15AEF2D9005198A2 /* libboost_system.a */; };
 		47342E2E15AEF2D9005198A2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47342E2C15AEF2D9005198A2 /* libboost_thread.a */; };
@@ -40,10 +40,10 @@
 		4707777615BEE186005DDE0E /* chaotic_parallel_contact_read_write_lock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chaotic_parallel_contact_read_write_lock.cpp; sourceTree = "<group>"; };
 		4707777815BEF551005DDE0E /* reference_sequential_no_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reference_sequential_no_g.hpp; sourceTree = "<group>"; };
 		4707777915BEF562005DDE0E /* reference_sequential_no_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reference_sequential_no_g.cpp; sourceTree = "<group>"; };
-		4707777C15BEF9FB005DDE0E /* independent_sets.hpp */ = {isa = PBXFileReference; path = independent_sets.hpp; sourceTree = "<group>"; };
+		4707777C15BEF9FB005DDE0E /* independent_sets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = independent_sets.hpp; sourceTree = "<group>"; };
 		4707777D15BEFA1E005DDE0E /* independent_sets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = independent_sets.cpp; sourceTree = "<group>"; };
-		472368B615BB218A00308395 /* reference_sequential.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reference_sequential.hpp; sourceTree = "<group>"; };
-		472368B815BB21A200308395 /* reference_sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reference_sequential.cpp; sourceTree = "<group>"; };
+		472368B615BB218A00308395 /* reference_sequential_g.hpp */ = {isa = PBXFileReference; path = reference_sequential_g.hpp; sourceTree = "<group>"; };
+		472368B815BB21A200308395 /* reference_sequential_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reference_sequential_g.cpp; sourceTree = "<group>"; };
 		472368BA15BB469100308395 /* chaotic_parallel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chaotic_parallel.hpp; sourceTree = "<group>"; };
 		472368BB15BB46A300308395 /* chaotic_parallel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chaotic_parallel.cpp; sourceTree = "<group>"; };
 		47342E2B15AEF2D9005198A2 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libboost_system.a; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 				47C11CA115B754350089E046 /* multicolor_parallel.cpp */,
 				4707777415BEE14C005DDE0E /* chaotic_parallel_contact_read_write_lock.hpp */,
 				4707777615BEE186005DDE0E /* chaotic_parallel_contact_read_write_lock.cpp */,
-				472368B615BB218A00308395 /* reference_sequential.hpp */,
-				472368B815BB21A200308395 /* reference_sequential.cpp */,
+				472368B615BB218A00308395 /* reference_sequential_g.hpp */,
+				472368B815BB21A200308395 /* reference_sequential_g.cpp */,
 				4707777815BEF551005DDE0E /* reference_sequential_no_g.hpp */,
 				4707777915BEF562005DDE0E /* reference_sequential_no_g.cpp */,
 			);
@@ -206,7 +206,7 @@
 				47B5EFC515AB0CBC0059A966 /* main.cpp in Sources */,
 				47C11CA515B759AC0089E046 /* granular_system.cpp in Sources */,
 				478E802015B9937100C07E62 /* multicolor_parallel.cpp in Sources */,
-				472368B915BB21A200308395 /* reference_sequential.cpp in Sources */,
+				472368B915BB21A200308395 /* reference_sequential_g.cpp in Sources */,
 				472368BC15BB46A300308395 /* chaotic_parallel.cpp in Sources */,
 				47F098C015BC0978001A458B /* chaotic_parallel_contact_iteration.cpp in Sources */,
 				4707777715BEE186005DDE0E /* chaotic_parallel_contact_read_write_lock.cpp in Sources */,

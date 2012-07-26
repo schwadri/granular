@@ -17,9 +17,7 @@ class granular_system {
 public:
   granular_system();
   
-  void run_seq_old();
-  
-  void run_seq();
+  void run_seq_g();
   
   void run_seq_no_g();
   
@@ -51,43 +49,6 @@ public:
   void update_u_seq();  
   /* takes a collider::contact representation and creates a solver::contact representation
    */
-  
-  
-/************* REMOVE START *************/
-  void contact_to_solver_contact_seq(collider::contact & c);  
-  /* solves a one contact problem
-   */
-  vec3 solve_one_contact_problem_alart_curnier_seq(solver::contact & ci, vec3 pold, vec3 const & b, real tol_rel, real tol_abs); 
-
-  /* solves a one contact problem
-   */
-  vec3 solve_one_contact_problem_pseudo_enum_alart_curnier_seq(solver::contact & ci, vec3 pold, vec3 const & b);  
-
-  /* solve a multi contact problem by using a global jacobi overrelaxation method
-   * with a local nonlinear solver
-   */
-  prox_result solve_multi_contact_problem_jor_seq();  
-  /* solve a multi contact problem by using a global successive overrelaxation method
-   * with a local nonlinear solver
-   */
-  prox_result solve_multi_contact_problem_sor_seq();
-
-  /* set the up the off-diagonal terms of the delassus matrix in block-csr form
-   */
-  void setup_bcsr_gij_seq();
-
-  void insert_into_independent_sets_using_cliques(index_t vid, collider::contact::key_type const & vertex);  
-  /*reorder contacts by color to match the contact order of the parallel version*/
-  void reorder_contacts_by_colors();
-  void build_independent_contact_sets();  
-  /* iterate through all the contacts and set up solver contact representations
-   */
-  void setup_solver_contacts_seq();  
-  void setup_solver_contacts_par() {
-    
-  }
-  
-/************* REMOVE END *************/
   
   void create_sphere_sphere_contact_seq(index_t body0_id, index_t body1_id, vec3 const & p, mat33 const & a_ic, real overlap);  
   void collide_sphere_sphere_seq(index_t body0_id, index_t body1_id, vec3 const & x0, real radius0, vec3 const & x1, real radius1);  

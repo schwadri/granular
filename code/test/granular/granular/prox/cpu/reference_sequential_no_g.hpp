@@ -66,20 +66,21 @@ struct reference_sequential_no_g_sor_prox {
   index_t m_max_global_iterations,
   m_max_local_iterations;
   
-  std::vector<vec3>   m_percussions;
   
-  std::vector<vec4>   m_v;              ///< translational velocity     $(v_x, v_y, v_z, 0)$
-  std::vector<vec4>   m_o;              ///< angular velocity $\omega$  $(0, \omega_x, \omega_y, \omega_z)$
-  std::vector<vec4>   m_inertia_inv;    ///< inverse mass and inertia in body fixed frame
 
   /** \group contact solver data structures*/
   //@{
-  std::vector<contact>                      m_contacts;
-  std::vector<index_t>                      m_colors;
-  //bcsr representation of delassus matrix
+  std::vector<vec3>     m_percussions;    ///< global percussion vector
+  std::vector<vec4>     m_v;              ///< translational velocity     $(v_x, v_y, v_z, 0)$
+  std::vector<vec4>     m_o;              ///< angular velocity $\omega$  $(0, \omega_x, \omega_y, \omega_z)$
+  std::vector<vec4>     m_inertia_inv;    ///< inverse mass and inertia in body fixed frame
+  std::vector<contact>  m_contacts;       ///< global contact structure vector
+
+  std::vector<index_t>  m_colors;         ///< used during contact ordering
+  independent_contact_set_container m_independent_sets; ///< used during contact ordering
   //@}
   
-  independent_contact_set_container m_independent_sets;
+  
 };
 
 #endif

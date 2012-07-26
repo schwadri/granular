@@ -116,19 +116,6 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
       nc.b[i] = epsilon[i] * (gamma_trans_i + gamma_rot_i);
     }
     
-    //handle W M^{-1} dt h terms
-    /*vec4 const & dv0     = m_dv[body0_id];
-    vec4 const & do0     = m_do[body0_id];
-    
-    for(int i = 0; i < 3; ++i) {
-      real c_trans_i = 0;
-      real c_rot_i = 0;
-      for(int j = 0; j < 3; ++j) {
-        c_trans_i = c_trans_i + nc.w0_trans[j][i] * dv0[j];
-        c_rot_i   = c_rot_i   + nc.w0_rot[j][i] * do0[j + 1];
-      }
-      nc.c[i] = nc.c[i] + (c_trans_i + c_rot_i);
-    }*/
   } else {
     
     mat33 const & a_b1  = m_a_ib[body1_id];
@@ -191,22 +178,6 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
       }
       nc.b[i] = epsilon[i] * (gamma_trans_i + gamma_rot_i);
     }
-    
-    //handle W M^{-1} dt h terms
-    /*vec4 const & dv0     = m_dv[body0_id];
-    vec4 const & do0     = m_do[body0_id];
-    vec4 const & dv1     = m_dv[body1_id];
-    vec4 const & do1     = m_do[body1_id];
-    
-    for(int i = 0; i < 3; ++i) {
-      real c_trans_i = 0;
-      real c_rot_i = 0;
-      for(int j = 0; j < 3; ++j) {
-        c_trans_i = c_trans_i - nc.w0_trans[j][i] * (dv1[j] - dv0[j]);
-        c_rot_i   = c_rot_i   + nc.w1_rot[j][i] * do1[j + 1] + nc.w0_rot[j][i] * do0[j + 1];
-      }
-      nc.c[i] = nc.c[i] + (c_trans_i + c_rot_i);
-    }*/
   }
   
   //choose r_n, r_t, the relaxation parameters for the projected jor/sor schemes
@@ -341,46 +312,6 @@ void reference_sequential_no_g_sor_prox::apply_percussions(granular_system & sys
   //copy u back to system
   std::swap(sys.m_v, m_v);
   std::swap(sys.m_o, m_o);
-  
-  /*for(index_t i = 0; i < m_contacts.size(); ++i) {
-    contact const & ci = m_contacts[i];
-    
-    index_t body0_id = boost::get<0>(ci.key);
-    index_t body1_id = boost::get<1>(ci.key);
-    
-    vec3 p = m_percussions[i];
-    //body0
-    vec4 & dt_v0 = sys.m_dv[body0_id];
-    vec4 & dt_o0 = sys.m_do[body0_id];
-    vec4 const & inertia0_inv = sys.m_inertia_inv[body0_id];
-    for(int j = 0; j < 3; ++j) {
-      real wp_dv_j = 0.0;
-      real wp_do_j = 0.0;
-      for(int k = 0; k < 3; ++k) {
-        wp_dv_j = wp_dv_j + ci.w0_trans[j][k] * p[k];
-        wp_do_j = wp_do_j + ci.w0_rot[j][k] * p[k];
-      }
-      dt_v0[j]      = dt_v0[j] + inertia0_inv[0] * wp_dv_j;
-      dt_o0[j + 1]  = dt_o0[j + 1] + inertia0_inv[j + 1] * wp_do_j;
-    }
-    
-    if(!sys.is_boundary(body1_id)) {
-      //body1
-      vec4 & dt_v1 = sys.m_dv[body1_id];
-      vec4 & dt_o1 = sys.m_do[body1_id];
-      vec4 const & inertia1_inv = sys.m_inertia_inv[body1_id];
-      for(int j = 0; j < 3; ++j) {
-        real wp_dv_j = 0.0;
-        real wp_do_j = 0.0;
-        for(int k = 0; k < 3; ++k) {
-          wp_dv_j = wp_dv_j - ci.w0_trans[j][k] * p[k];
-          wp_do_j = wp_do_j + ci.w1_rot[j][k] * p[k];
-        }
-        dt_v1[j]      = dt_v1[j] + inertia1_inv[0] * wp_dv_j;
-        dt_o1[j + 1]  = dt_o1[j + 1] + inertia1_inv[j + 1] * wp_do_j;
-      }
-    }
-  }*/
 }
 
 /* solves a one contact problem
