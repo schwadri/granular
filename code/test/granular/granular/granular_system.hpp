@@ -21,6 +21,8 @@ public:
   
   void run_seq();
   
+  void run_seq_no_g();
+  
   void run_par_per_color_barrier();
   
   void run_par_chaotic();
