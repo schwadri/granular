@@ -234,6 +234,181 @@ i<iosfwd>
 i<tr1/cstdint>
 i<boost/config.hpp>
 
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config.hpp
+c000000004F25C0F5000000000000081A
+t1327874293
+s2074
+i<boost/config/select_compiler_config.hpp>
+i<boost/config/select_stdlib_config.hpp>
+i<boost/config/select_platform_config.hpp>
+i<boost/config/suffix.hpp>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/no_tr1/utility.hpp
+c00000000435676900000000000000356
+t1129739920
+s854
+i<utility>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/posix_features.hpp
+c00000000434FBDBA0000000000000E98
+t1129299386
+s3736
+i<unistd.h>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/select_compiler_config.hpp
+c000000004E92DC1F0000000000000E75
+t1318247455
+s3701
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/select_platform_config.hpp
+c000000004E92DC1F0000000000000C97
+t1318247455
+s3223
+i<boost/config/posix_features.hpp>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/select_stdlib_config.hpp
+c000000004DB564C80000000000000BA8
+t1303733448
+s2984
+i<cstddef>
+i<stddef.h>
+i<boost/config/no_tr1/utility.hpp>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/config/suffix.hpp
+c000000004EF4B7AB000000000000560A
+t1324660651
+s22026
+i<limits.h>
+i<cstddef>
+i"boost/type.hpp"
+i"boost/non_type.hpp"
+i<typeinfo>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/non_type.hpp
+c0000000040A731C3000000000000026B
+t1084699075
+s619
+
+N/Users/schwadri/Documents/projects/phd/granular/code/ext/boost_1_49_0/boost/type.hpp
+c000000004104510C00000000000001E1
+t1090801932
+s481
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/../../../../../../../../../System/Library/Frameworks/GLUT.framework/GLUT
+c000000004F4646CC0000000000105760
+t1330005708
+s1070944
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/../../../../../../../../../System/Library/Frameworks/OpenCL.framework/OpenCL
+c000000004FF48097000000000006E540
+t1341423767
+s451904
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/../../../../../../../../../System/Library/Frameworks/OpenGL.framework/OpenGL
+c000000004F9D04D2000000000002E350
+t1335690450
+s189264
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/Debug/snow
+t1342718847
+s149848
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/buffer.o
+t1342718846
+s10344
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/gl_cl_sharing.o
+t1342718846
+s240816
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/program.o
+t1342718846
+s27016
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/shader.o
+t1342718846
+s28108
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/snow.LinkFileList
+c000000005008437D00000000000001FC
+t1342718845
+s508
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/gl_cl_sharing.cpp
+c000000004FF70C7400000000000084CE
+t1341590644
+s33998
+i<OpenGL/OpenGl.h>
+i<OpenCL/OpenCl.h>
+i<stdlib.h>
+i<stdexcept>
+i<iostream>
+i<cmath>
+i<vector>
+i<GLUT/glut.h>
+i"buffer.hpp"
+i"shader.hpp"
+i"program.hpp"
+i"time.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/buffer.cpp
+c000000004EC7D0180000000000000700
+t1321717784
+s1792
+i<stdexcept>
+i"buffer.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/buffer.hpp
+c000000004EC7CFC2000000000000026B
+t1321717698
+s619
+i"common.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/common.hpp
+c0000000048E54F7C00000000000000E8
+t1222987644
+s232
+i<OpenGL/gl.h>
+i<OpenGL/glu.h>
+i<GL/gl.h>
+i<GL/glu.h>
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/program.cpp
+c0000000048E6526F00000000000005FC
+t1223053935
+s1532
+i<stdexcept>
+i"program.hpp"
+i"shader.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/program.hpp
+c000000004EC920270000000000000339
+t1321803815
+s825
+i"common.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/shader.cpp
+c0000000048E56275000000000000031D
+t1222992501
+s797
+i<stdexcept>
+i"shader.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/shader.hpp
+c0000000048E5553C00000000000001A0
+t1222989116
+s416
+i<string>
+i"common.hpp"
+
+N/Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/time.hpp
+c000000004FF0599600000000000022A0
+t1341151638
+s8864
+i<iosfwd>
+i<tr1/cstdint>
+i<boost/config.hpp>
+
 CCheck dependencies
 r0
 lSLF07#2@18"Check dependencies364411697#364411697#0(155"[WARN]Mac OS X deployment target '10.7' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.6' for the Mac OS X 10.6 SDK.1(22@148"Mac OS X deployment target '10.7' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.6' for the Mac OS X 10.6 SDK.364411697#18446744073709551615#0#0(1@0"0(0#1#0"4491105600#0"0#
@@ -251,6 +426,9 @@ xc++
 xcom.apple.compilers.llvmgcc42
 occ1plus: warning: -Wuninitialized is not supported without -O
 lSLF07#2@89"Compile /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/buffer.cpp364411645#364411646#0(62"cc1plus: warning: -Wuninitialized is not supported without -O1(22@43"-Wuninitialized is not supported without -O364411645#0#62#0(6@0"364411645#0#0#0#0#0"0(0#0#81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/buffer.cpp4501929616#1613"    cd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow    setenv LANG en_US.US-ASCII    /Developer-3.2.5/usr/bin/llvm-gcc-4.2 -x c++ -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -Wuninitialized -Wshorten-64-to-32 -DDEBUG=1 -DBUILD_MACOSX -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -fvisibility-inlines-hidden -mmacosx-version-min=10.7 -gdwarf-2 -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-generated-files.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-own-target-headers.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-all-target-headers.hmap -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-project-headers.hmap -F/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/include -I../../ext/boost_1_49_0 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources/x86_64 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -c /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/buffer.cpp -o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/buffer.o0#
+
+CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/buffer.o /Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/buffer.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
+r0
 
 CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/gl_cl_sharing.o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
 s364411645.504036
@@ -291,6 +469,9 @@ o/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.c
 o/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:1019: warning: implicit conversion shortens 64-bit value into a 32-bit value
 lSLF07#2@89"Compile /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp364411645#364411646#0(3858"cc1plus: warning: -Wuninitialized is not supported without -O/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:35: warning: attribute ignored in declaration of 'struct state'/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:35: warning: attribute for 'struct state' must follow the 'struct' keyword/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:42: warning: attribute ignored in declaration of 'struct dstate'/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:42: warning: attribute for 'struct dstate' must follow the 'struct' keyword/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:101: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp: In function 'void initGL()':/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:315: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:315: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:315: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:315: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp: In function 'void initSys()':/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:481: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:482: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:483: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp: In function 'void updateSys(int)':/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:729: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:796: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:819: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:845: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:861: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:870: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:884: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:941: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:966: warning: implicit conversion shortens 64-bit value into a 32-bit value/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp:1019: warning: implicit conversion shortens 64-bit value into a 32-bit value23(22@43"-Wuninitialized is not supported without -O364411645#0#62#0(6@0"364411645#0#0#0#0#0"0(22@50"Attribute ignored in declaration of 'struct state'364411646#62#146#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#35#0#35#0#0"0(22@61"Attribute for 'struct state' must follow the 'struct' keyword364411646#208#157#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#35#0#35#0#0"0(22@51"Attribute ignored in declaration of 'struct dstate'364411646#365#147#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#42#0#42#0#0"0(22@62"Attribute for 'struct dstate' must follow the 'struct' keyword364411646#512#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#42#0#42#0#0"0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#670#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#101#0#101#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#940#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#315#0#315#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#1098#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#315#0#315#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#1256#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#315#0#315#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#1414#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#315#0#315#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#1685#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#481#0#481#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#1843#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#482#0#482#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2001#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#483#0#483#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2277#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#729#0#729#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2435#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#796#0#796#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2593#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#819#0#819#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2751#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#845#0#845#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#2909#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#861#0#861#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#3067#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#870#0#870#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#3225#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#884#0#884#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#3383#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#941#0#941#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#3541#158#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#966#0#966#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(22@61"Implicit conversion shortens 64-bit value into a 32-bit value364411646#3699#159#0(6@81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp363283444#1019#0#1019#0#61"implicit conversion shortens 64-bit value into a 32-bit value0(0#0#81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp17181535488#1620"    cd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow    setenv LANG en_US.US-ASCII    /Developer-3.2.5/usr/bin/llvm-gcc-4.2 -x c++ -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -Wuninitialized -Wshorten-64-to-32 -DDEBUG=1 -DBUILD_MACOSX -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -fvisibility-inlines-hidden -mmacosx-version-min=10.7 -gdwarf-2 -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-generated-files.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-own-target-headers.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-all-target-headers.hmap -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-project-headers.hmap -F/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/include -I../../ext/boost_1_49_0 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources/x86_64 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -c /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/gl_cl_sharing.cpp -o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/gl_cl_sharing.o0#
 
+CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/gl_cl_sharing.o /Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/gl_cl_sharing.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
+r0
+
 CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/program.o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/program.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
 s364411645.545255
 e364411646.383278
@@ -304,6 +485,9 @@ xc++
 xcom.apple.compilers.llvmgcc42
 occ1plus: warning: -Wuninitialized is not supported without -O
 lSLF07#2@90"Compile /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/program.cpp364411645#364411646#0(62"cc1plus: warning: -Wuninitialized is not supported without -O1(22@43"-Wuninitialized is not supported without -O364411645#0#62#0(6@0"364411645#0#0#0#0#0"0(0#0#82"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/program.cpp4501929616#1615"    cd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow    setenv LANG en_US.US-ASCII    /Developer-3.2.5/usr/bin/llvm-gcc-4.2 -x c++ -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -Wuninitialized -Wshorten-64-to-32 -DDEBUG=1 -DBUILD_MACOSX -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -fvisibility-inlines-hidden -mmacosx-version-min=10.7 -gdwarf-2 -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-generated-files.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-own-target-headers.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-all-target-headers.hmap -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-project-headers.hmap -F/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/include -I../../ext/boost_1_49_0 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources/x86_64 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -c /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/program.cpp -o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/program.o0#
+
+CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/program.o /Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/program.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
+r0
 
 CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/shader.o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/shader.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
 s364411645.543710
@@ -319,6 +503,9 @@ xcom.apple.compilers.llvmgcc42
 occ1plus: warning: -Wuninitialized is not supported without -O
 lSLF07#2@89"Compile /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/shader.cpp364411645#364411646#0(62"cc1plus: warning: -Wuninitialized is not supported without -O1(22@43"-Wuninitialized is not supported without -O364411645#0#62#0(6@0"364411645#0#0#0#0#0"0(0#0#81"/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/shader.cpp4501929616#1613"    cd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow    setenv LANG en_US.US-ASCII    /Developer-3.2.5/usr/bin/llvm-gcc-4.2 -x c++ -arch x86_64 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -Wuninitialized -Wshorten-64-to-32 -DDEBUG=1 -DBUILD_MACOSX -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -fvisibility-inlines-hidden -mmacosx-version-min=10.7 -gdwarf-2 -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-generated-files.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-own-target-headers.hmap -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-all-target-headers.hmap -iquote /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/snow-project-headers.hmap -F/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/include -I../../ext/boost_1_49_0 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources/x86_64 -I/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/DerivedSources -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -c /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/src/opengl/shader.cpp -o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/shader.o0#
 
+CCompileC build/snow.build/Debug/snow.build/Objects-normal/x86_64/shader.o /Users/schwadri/Documents/projects/phd/granular/code/test/snow/src/opengl/shader.cpp normal x86_64 c++ com.apple.compilers.llvmgcc42
+r0
+
 CLd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/snow normal x86_64
 s364411646.610047
 e364411647.082579
@@ -328,4 +515,7 @@ x/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/snow
 xnormal
 xx86_64
 lSLF07#2@81"Link /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/snow364411646#364411647#0(0"0(0#0#0"17200929536#669"    cd /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Developer-3.2.5/usr/bin/llvm-g++-4.2 -arch x86_64 -isysroot /Developer-3.2.5/SDKs/MacOSX10.6.sdk -L/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -F/Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug -filelist /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/snow.build/Debug/snow.build/Objects-normal/x86_64/snow.LinkFileList -mmacosx-version-min=10.7 -framework OpenCL -framework OpenGL -framework GLUT -prebind -o /Users/schwadri/Documents/projects/phd/gpgpu/code/test/snow/build/Debug/snow0#
+
+CLd /Users/schwadri/Documents/projects/phd/granular/code/test/snow/build/Debug/snow normal x86_64
+r0
 

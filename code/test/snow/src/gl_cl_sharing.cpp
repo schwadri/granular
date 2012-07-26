@@ -225,16 +225,17 @@ static char const * vertex_shader_source =
 STRINGIFY(
 
 //#extension GL_ARB_draw_instanced : enable
-          
+  
+  attribute vec2 vertex;
   attribute vec4 x;
-  varying vec4  color;
+  varying vec4 color;
   void main() {
 
     float cphi = cos(x.z);
     float sphi = sin(x.z);
     vec4 p = vec4(
-      cphi * gl_Vertex[0] - sphi * gl_Vertex[1] + x[0],
-      sphi * gl_Vertex[0] + cphi * gl_Vertex[1] + x[1],
+      cphi * vertex[0] - sphi * vertex[1] + x[0],
+      sphi * vertex[0] + cphi * vertex[1] + x[1],
       0.0,
       1.0
     );
@@ -270,6 +271,9 @@ void display() {
   //glColor4f(0.5f, 0.4f, 0.2f, 1.0f);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glEnableClientState(GL_VERTEX_ARRAY);
+
+  glEnableClientState(GL_INDEX_ARRAY);
+  
   //glVertexPointer(2, GL_FLOAT, 0, heights);
   //glDrawArrays(GL_LINE_STRIP, 0, sizeof(heights) / (2*sizeof(float)));
 
@@ -289,6 +293,7 @@ void display() {
   error = glGetError();
   glVertexAttribPointer(x_loc, 4, GL_FLOAT, GL_FALSE, 0, 0);
   glVertexAttribDivisorARB(x_loc, 1);
+  
   
   GLfloat pts[]     = {0.0f, 0.0f, 0.5f, -0.5f, 0.0f, 1.0f};
   GLuint   indices[] = {0, 1, 2, 0};
