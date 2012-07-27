@@ -44,13 +44,11 @@ struct reference_sequential_no_g_sor_prox {
                                           );
   
   /*reorder contacts by color to match the contact order of the parallel version*/
-  void reorder_contacts_by_colors(granular_system &                 sys,
-                                  std::vector<collider::contact>  &  contacts,
-                                  std::vector<std::vector<index_t> > &    cliques);
+  void reorder_contacts_by_colors(cliqued_graph<collider::contact>  &  contacts,
+                                  independent_contact_set_container const &  independent_sets);
   void setup_contacts(
                       granular_system &                 sys,
-                      std::vector<collider::contact> &  contacts,
-                      std::vector<std::vector<index_t> > &    cliques
+                      cliqued_graph<collider::contact> &  contacts
                       );
   void apply_percussions(granular_system & sys);
   

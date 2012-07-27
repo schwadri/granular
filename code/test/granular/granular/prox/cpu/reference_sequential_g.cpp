@@ -222,7 +222,7 @@ void reference_sequential_g_sor_prox::collider_contact_to_solver_contact(
 
 /* set the up the off-diagonal terms of the delassus matrix in block-csr form
  */
-void reference_sequential_g_sor_prox::setup_bcsr_gij(granular_system const & sys) {
+void reference_sequential_g_sor_prox::setup_bcsr_gij(granular_system const & sys, cliqued_graph<collider::contact> const & contacts) {
   m_gij_columns.clear();
   m_gij_rows.resize(m_contacts.size() + 1);
   m_gij_blocks.clear();
@@ -235,7 +235,7 @@ void reference_sequential_g_sor_prox::setup_bcsr_gij(granular_system const & sys
     index_t ci_body1_id = boost::get<1>(ci.key);
     
     //connect to all contacts from body0
-    std::vector<index_t> const & b0_contacts = sys.m_body_to_contact_map[ci_body0_id];
+    std::vector<index_t> const & b0_contacts = contacts.cliques[ci_body0_id];
     for(index_t j = 0; j < b0_contacts.size(); ++j) {
       index_t j_id = b0_contacts[j];
       if(i == j_id)
@@ -294,7 +294,7 @@ void reference_sequential_g_sor_prox::setup_bcsr_gij(granular_system const & sys
     
     if(!sys.is_boundary(ci_body1_id)) {
       //connect to all contacts from body1
-      std::vector<index_t> const & b1_contacts = sys.m_body_to_contact_map[ci_body1_id];
+      std::vector<index_t> const & b1_contacts = contacts.cliques[ci_body1_id];
       for(index_t j = 0; j < b1_contacts.size(); ++j) {
         index_t j_id = b1_contacts[j];
         if(i == j_id)
@@ -363,65 +363,45 @@ void reference_sequential_g_sor_prox::setup_bcsr_gij(granular_system const & sys
 #endif
 }
 
-/*reorder contacts by color to match the contact order of the parallel version*/
+/*reorder contacts by color*/
 void reference_sequential_g_sor_prox::reorder_contacts_by_colors(
-  granular_system &                 sys,
-  std::vector<collider::contact>  &  contacts,
-  std::vector<std::vector<index_t> > &    cliques
+  cliqued_graph<collider::contact> & contacts,
+  independent_contact_set_container const &  independent_sets
 ) {
-  std::vector<collider::contact> new_contacts;
-  std::vector<std::vector<index_t> > new_body_to_contact_map(cliques.size());
+  cliqued_graph<collider::contact> new_contacts;
+  new_contacts.cliques.resize(contacts.cliques.size());
   
-#ifdef DEBUG_GIJ_DUMP
-  //std::vector<index_t> contact_to_new_map(m_contacts.size());
-#endif
-  
-  for(index_t i = 0; i < m_independent_sets.size(); ++i) {
-    independent_contact_set const & iset = m_independent_sets[i];
+  for(index_t i = 0; i < independent_sets.size(); ++i) {
+    independent_contact_set const & iset = independent_sets[i];
     for(index_t j = 0; j < iset.size(); ++j) {
-      index_t new_contact_id = new_contacts.size();
       index_t old_contact_id = iset[j];
       
-#ifdef DEBUG_GIJ_DUMP
-      //contact_to_new_map[old_contact_id] = new_contact_id;
-#endif
-      
-      collider::contact const & c = contacts[old_contact_id];
-      new_contacts.push_back(c);
-      new_body_to_contact_map[boost::get<0>(c.key)].push_back(new_contact_id);
-      if(!sys.is_boundary(boost::get<1>(c.key)))
-        new_body_to_contact_map[boost::get<1>(c.key)].push_back(new_contact_id);
+      collider::contact const & c = contacts.nodes[old_contact_id];
+      index_t body0_id = boost::get<0>(c.key);
+      index_t body1_id = boost::get<1>(c.key);
+      new_contacts.insert(body0_id, body1_id, c);
     }
   }
-  std::swap(new_contacts, contacts);
-  std::swap(new_body_to_contact_map, cliques);
-#ifdef DEBUG_GIJ_DUMP
-  //std::cout << "contact order: [";
-  //for(index_t i = 0; i< contact_to_new_map.size(); ++i) {
-  //  std::cout << i << "->(0," << contact_to_new_map[i] << ") ";
-  //}
-  //std::cout << "]\n";
-#endif
+  using std::swap;
+  swap(new_contacts, contacts);
 }
-
 
 void reference_sequential_g_sor_prox::setup_contacts(
   granular_system &                 sys,
-  std::vector<collider::contact>  &  contacts,
-  std::vector<std::vector<index_t> > &    cliques
+  cliqued_graph<collider::contact>  &  contacts
 ) {
 
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "  build independent contact set..." << std::flush;
 #endif  
   //step 0.
-  build_independent_contact_sets(contacts, m_colors, cliques, m_independent_sets);
+  build_independent_sets(contacts, m_colors, m_independent_sets);
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "  reorder contacts by color..." << std::flush;
 #endif
   //step 1.
-  reorder_contacts_by_colors(sys, contacts, cliques);
+  reorder_contacts_by_colors(contacts, m_independent_sets);
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "done\n  setup solver contact structures..." << std::flush;
@@ -432,7 +412,7 @@ void reference_sequential_g_sor_prox::setup_contacts(
   m_percussions.resize(contacts.size(), (vec3){0, 0, 0});
   for(index_t i = 0; i < contacts.size(); ++i) {
     contact nc;
-    collider_contact_to_solver_contact(sys, contacts[i], nc);
+    collider_contact_to_solver_contact(sys, contacts.nodes[i], nc);
     m_contacts.push_back(nc);
   }
 #ifdef DEBUG_GIJ_DUMP
@@ -450,7 +430,7 @@ void reference_sequential_g_sor_prox::setup_contacts(
   std::cout << "done\n  setup delassus matrix in bcsr form..." << std::flush;
 #endif
   
-  setup_bcsr_gij(sys);
+  setup_bcsr_gij(sys, contacts);
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "done" << std::endl;
