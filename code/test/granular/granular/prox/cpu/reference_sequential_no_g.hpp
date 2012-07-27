@@ -22,7 +22,7 @@ struct reference_sequential_no_g_sor_prox {
     collider::contact::key_type   key;      ///< unique contact identifier
     mat33                         g_ii;     ///< diagonal block of delassus matrix
     mat33                         g_ii_inv; ///< inverse diagonal block of delassus matrix
-    real                          r_n, r_t; ///< relaxation parameters
+    vec3                          r;        ///< relaxation factor
     mat33                         w0_trans, ///< translation part of jacobian
                                   w0_rot,   ///< rotation part for body 0 of jacobian
                                   w1_rot;   ///< rotation part for body 1 of jacobian

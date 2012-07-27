@@ -189,8 +189,7 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
   //there is a very high friction coefficient sometimes it seems to be beneficial
   //to take the biggest off-diagonal-term times the friction coefficients
   real rnmax = max(nc.g_ii[0][0], m_mu * max(abs(nc.g_ii[0][1]), abs(nc.g_ii[0][2])));
-  nc.r_n = m_alpha / rnmax;
-  nc.r_t = m_alpha / rtmax;
+  nc.r = (vec3){m_alpha / rnmax, m_alpha / rtmax, m_alpha / rtmax};
   
   //TODO: initialize contact percussion
   //FIXME:c.p   = (vec3){real(0), real(0), real(0)};
@@ -273,7 +272,7 @@ void reference_sequential_no_g_sor_prox::setup_contacts(
   //std::cout << "contacts: [";
   for(index_t i = 0; i <m_solver_contacts.size(); ++i) {
     solver::contact const & c = m_solver_contacts[i];
-    dump << c.key << c.g_ii << c.w0_trans << c.w0_rot << c.w1_rot << c.c << c.r_n << c.r_t << c.mu;
+    dump << c.key << c.g_ii << c.w0_trans << c.w0_rot << c.w1_rot << c.c << c.r << c.mu;
     //std::cout << boost::get<0>(c.key) << "-" << boost::get<1>(c.key) << " ";
   }
   //std::cout << "]\n";
@@ -322,7 +321,7 @@ vec3 reference_sequential_no_g_sor_prox::solve_one_contact_problem_alart_curnier
   vec3 pnew = pold;
   
   mat33 const & g_ii = ci.g_ii;
-  vec3 const r = (vec3){ci.r_n, ci.r_t, ci.r_t};
+  vec3 const r = ci.r;
   bool converged = false;
   bool diverged  = false;
   unsigned int iteration = 0;
