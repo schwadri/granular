@@ -11,7 +11,6 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
-#include "../../contacts/independent_sets.hpp"
 #include "../../contacts/graph.hpp"
 
 /** \brief sequential sor prox cpu reference implementation*/
@@ -68,8 +67,7 @@ struct multicolor_parallel_no_g_sor_prox {
   /*setup solver contact data structures*/
   void setup_contacts(
                       granular_system &                 sys,
-                      cliqued_graph<collider::contact> &  contacts,
-                      std::vector<std::vector<index_t> > &    cliques
+                      cliqued_graph<collider::contact> &  contacts
                       );
 
   /* solve a multi contact problem by using a global successive overrelaxation method
@@ -79,7 +77,8 @@ struct multicolor_parallel_no_g_sor_prox {
   
   /* solves a one contact problem
    */
-  vec3 solve_one_contact_problem_alart_curnier(contact const & ci, vec3 pold, vec3 const & b, real tol_rel, real tol_abs);
+  static vec3 solve_one_contact_problem_alart_curnier(contact const & ci, vec3 pold, vec3 const & b, real tol_rel, real tol_abs,
+                                                      index_t max_local_iterations);
   
   static std::pair<bool, bool> work_function(
                                              sub_problem const & sub,
@@ -124,7 +123,8 @@ struct multicolor_parallel_no_g_sor_prox {
   
   struct prox_master {
     prox_master(
-                sub_problem const & sub_, std::vector<vec3> & percussions_, index_t percussion_offset_,
+                sub_problem const & sub_, std::vector<vec3> & percussions_, std::vector<contact> const & contacts_,
+                std::vector<vec4> & v_, std::vector<vec4> & o_, std::vector<vec4> const & inertia_inv_,
                 real tol_rel_, real tol_abs_, index_t max_global_iterations_, index_t max_local_iterations_, index_t & iteration_,
                 volatile bool & converged_,  volatile bool & diverged_, volatile bool & done_,
                 barrier & b_
@@ -132,8 +132,13 @@ struct multicolor_parallel_no_g_sor_prox {
     
     void operator()();
     sub_problem const & sub;              ///< sub problem to be handled by this worker thread
-    std::vector<vec3> & percussions;      ///< global contact percussion vector
-    index_t percussion_offset;            ///< offset into the global contact percussion vector
+    
+    //references to global data
+    std::vector<vec3> & percussions;
+    std::vector<contact> const & contacts;
+    std::vector<vec4> & v; 
+    std::vector<vec4> & o;
+    std::vector<vec4> const & inertia_inv;
     
     //algorithm termination criterion data
     index_t max_local_iterations;

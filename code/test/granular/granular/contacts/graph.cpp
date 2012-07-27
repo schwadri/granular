@@ -9,7 +9,8 @@
 
 #include <iostream>
 
-void insert_into_independent_sets(
+/*FIXME: duplicate symbol
+ void insert_into_independent_sets(
                                   std::vector<index_t> &                      colors,
                                   std::vector<std::vector<index_t> > const &  cliques,
                                   independent_contact_set_container &         independent_sets,
@@ -54,29 +55,5 @@ void insert_into_independent_sets(
   } else {
     independent_sets[color].push_back(vid);
   }
-}
+}*/
 
-template <typename T>
-  void build_independent_sets(
-                              cliqued_graph<T> const &            graph,
-                              std::vector<index_t> &              colors,
-                              independent_contact_set_container & independent_sets
-  ) {
-    //reset independent sets
-    independent_sets.clear();
-    //reset colors
-    colors.clear();
-    colors.resize(graph.size(), 0xffffffff);
-    
-    //iterate over all nodes assigning them new colors
-    for(index_t i = 0; i < graph.size(); ++i) {
-      //get new node from node list
-      T const & ci = graph.nodes[i];
-      insert_into_independent_sets(colors, graph.cliques, independent_sets, i, ci.key);
-    }
-  #ifdef DEBUG_MESSAGES
-    std::cout << "# of independent sets: " << independent_sets.size() << std::endl;
-    for(int i = 0; i < independent_sets.size(); ++i)
-      std::cout << " set " << i << ", # contacts = " << independent_sets[i].size() << std::endl;
-  #endif
-  }

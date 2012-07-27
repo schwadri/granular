@@ -16,8 +16,9 @@ multicolor_parallel_no_g_sor_prox::multicolor_parallel_no_g_sor_prox(
   real tol_rel_, real tol_abs_,
  index_t max_global_iterations_, index_t max_local_iterations_
 ) : m_alpha(alpha_), m_worker_count(worker_count_), m_tol_rel(tol_rel_), m_tol_abs(tol_abs_), 
-m_max_global_iterations(max_global_iterations_), m_max_local_iterations(max_local_iterations_) 
-{ }
+m_max_global_iterations(max_global_iterations_), m_max_local_iterations(max_local_iterations_) { 
+  m_subproblems.resize(m_worker_count);
+}
 
 void multicolor_parallel_no_g_sor_prox::collider_contact_to_solver_contact(
                                                                             granular_system const & sys,
@@ -219,8 +220,7 @@ void multicolor_parallel_no_g_sor_prox::reorder_contacts_by_colors(
 
 void multicolor_parallel_no_g_sor_prox::setup_contacts(
                                                         granular_system &                 sys,
-                                                       cliqued_graph<collider::contact>  &  contacts,
-                                                        std::vector<std::vector<index_t> > &    cliques
+                                                        cliqued_graph<collider::contact>  &  contacts
                                                         ) {
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
@@ -229,34 +229,31 @@ void multicolor_parallel_no_g_sor_prox::setup_contacts(
   //step 0.
   build_independent_sets(contacts, m_colors, m_independent_sets);
   
+#ifdef DEBUG_MESSAGES
+  std::cout << "done\n  # of independent sets: " << m_independent_sets.size() << std::endl;
+  for(int i = 0; i < m_independent_sets.size(); ++i)
+    std::cout << "    set " << i << ", # contacts = " << m_independent_sets[i].size() << std::endl;
+#endif
+/*  
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "  reorder contacts by color..." << std::flush;
 #endif
   //step 1.
-  reorder_contacts_by_colors(contacts);
+  reorder_contacts_by_colors(contacts, m_independent_sets);*/
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "done\n  setup solver contact structures..." << std::flush;
 #endif
   
-  m_contacts.clear();
+#ifdef DEBUG_MESSAGES
+  std::cout << "done\n  decompose multi contact problem and setup solver contacts..." <<std::endl;
+#endif
+  //step 1. decompose multicontact problem into sub-problems for the worker threads
+  //        and setup those sub-problems
+  distribute_work(sys, contacts, m_independent_sets, m_subproblems);
+  
   m_percussions.clear();
   m_percussions.resize(contacts.size(), (vec3){0, 0, 0});
-  for(index_t i = 0; i < contacts.size(); ++i) {
-    contact nc;
-    collider_contact_to_solver_contact(sys, contacts[i], nc);
-    m_contacts.push_back(nc);
-  }
-#ifdef DEBUG_GIJ_DUMP
-  binary_out dump("contacts_seq.dat");
-  //std::cout << "contacts: [";
-  for(index_t i = 0; i <m_solver_contacts.size(); ++i) {
-    solver::contact const & c = m_solver_contacts[i];
-    dump << c.key << c.g_ii << c.w0_trans << c.w0_rot << c.w1_rot << c.c << c.r << c.mu;
-    //std::cout << boost::get<0>(c.key) << "-" << boost::get<1>(c.key) << " ";
-  }
-  //std::cout << "]\n";
-#endif
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
   std::cout << "done\n  initialize u^0, copy M^-1..." << std::flush;
@@ -289,32 +286,31 @@ void multicolor_parallel_no_g_sor_prox::setup_contacts(
 
 void multicolor_parallel_no_g_sor_prox::distribute_work(
   granular_system const & sys,
-  std::vector<collider::contact> const & contacts,
+  cliqued_graph<collider::contact> const & contacts,
   independent_contact_set_container const &  independent_sets,
   std::vector<sub_problem> & work
 ) {
-  m_contact_to_sub_problem_map.resize(contacts.size());
-  m_body_to_contact_map.clear();
-  m_body_to_contact_map.resize(sys.m_body_count);
-  
+  m_contacts.clear();
   /* clear sub_problem entries
    */
   for(int w = 0; w < m_worker_count; ++w) {
-    work[w].contacts.clear();
     work[w].barrier_points.clear();
   }
-  //divide the independent sets onto the work threads
-  for(index_t i = 0; i < independent_sets.size(); ++i) {
-    independent_contact_set const & iset = independent_sets[i];
-    //determine the number of contacts per work thread for the current
-    //independent set
-    size_t work_per_worker = (iset.size() + (m_worker_count - 1)) / m_worker_count;
+  
+  index_t offset = 0;
+  //divide work among workers
+  for(int w = 0; w < m_worker_count; ++w) {
+    sub_problem & my_work = work[w];
+    my_work.begin = offset;
     
-    //divide work for this independent set between workers
-    for(int w = 0; w < m_worker_count; ++w) {
-      sub_problem & my_work = work[w];
+    //take a slice of contact from each independent set
+    for(index_t i = 0; i < independent_sets.size(); ++i) {
+      independent_contact_set const & iset = independent_sets[i];
+      //determine the number of contacts per work thread for the current
+      //independent set
+      size_t work_per_worker = (iset.size() + (m_worker_count - 1)) / m_worker_count;
       
-      //gather contacts for this worker
+      //determine the range of contacts for the current worker
       std::vector<index_t>::const_iterator cbegin  = iset.begin();
       std::advance(cbegin, w * work_per_worker);
       std::vector<id_t>::const_iterator cend    = cbegin;
@@ -324,56 +320,16 @@ void multicolor_parallel_no_g_sor_prox::distribute_work(
       for(std::vector<index_t>::const_iterator citer = cbegin; citer < cend; ++citer) {
         contact c;
         //transform collider::contact into solver::contact
-        collider_contact_to_solver_contact(sys, contacts[*citer], c);
-        //insert into this worker's queue
-        my_work.contacts.push_back(c);
-        //update the global to local contact map
-        m_contact_to_sub_problem_map[*citer] = std::make_pair(w, my_work.contacts.size() - 1);
+        collider_contact_to_solver_contact(sys, contacts.nodes[*citer], c);
+        //insert into this worker's contact range
+        m_contacts.push_back(c);
+        ++offset;
       }
+      
       //add a barrier point, to mark the end of this independent set
-      my_work.barrier_points.push_back(my_work.contacts.size());
+      my_work.barrier_points.push_back(offset); 
     }
-  }
-  //update percussion offsets and body to contact map
-  index_t offset = 0;
-  for(int w = 0; w < m_worker_count; ++w) {
-    m_sub_offsets[w] = offset;
-    std::vector<contact> const & cw = m_work[w].contacts;
-    
-    for(index_t i = 0; i < cw.size(); ++i) {
-      index_t body0_id = boost::get<0>(cw[i].key);
-      
-      m_body_to_contact_map[body0_id].push_back(offset + i);
-      index_t body1_id = boost::get<1>(cw[i].key);
-      
-      if(body1_id < m_body_to_contact_map.size())
-        m_body_to_contact_map[body1_id].push_back(offset + i);
-    }
-    offset += work[w].contacts.size();
-  }
-  m_sub_offsets[m_worker_count] = offset;
-#ifdef DEBUG_GIJ_DUMP
-  binary_out dump("contacts_par.dat");
-  //std::cout << "contacts: [";
-  for(index_t i = 0; i < work[0].contacts.size(); ++i) {
-    contact const & c = work[0].contacts[i];
-    dump << c.key << c.g_ii << c.w0_trans << c.w0_rot << c.w1_rot << c.c << c.r << c.mu;
-    //std::cout << boost::get<0>(c.key) << "-" << boost::get<1>(c.key) << " ";
-  }
-  //std::cout << "]\n";
-  //std::cout << "contact order: [";
-  //for(index_t i = 0; i< m_contact_to_sub_problem_map.size(); ++i) {
-  //  std::cout << i << "->(" << m_contact_to_sub_problem_map[i].first << "," << m_contact_to_sub_problem_map[i].second << ") ";
-  //}
-  //std::cout << "]\n";
-#endif
-  index_t sub_id = 0;
-  /*update global contact to sub-problem contact map*/
-  for(index_t i = 0; i < m_contact_to_sub_problem_map.size(); ++i) {
-    if(i >= m_sub_offsets[sub_id + 1]) {
-      ++sub_id;
-    }
-    m_contact_to_sub_problem_map[i] = std::make_pair(sub_id, i - m_sub_offsets[sub_id]);
+    my_work.end = offset;
   }
 }
 
@@ -386,7 +342,9 @@ void multicolor_parallel_no_g_sor_prox::apply_percussions(granular_system & sys)
 
 /* solves a one contact problem
  */
-vec3 multicolor_parallel_no_g_sor_prox::solve_one_contact_problem_alart_curnier(contact const & ci, vec3 pold, vec3 const & b, real tol_rel, real tol_abs) {
+vec3 multicolor_parallel_no_g_sor_prox::solve_one_contact_problem_alart_curnier(contact const & ci, vec3 pold, vec3 const & b, real tol_rel, real tol_abs,
+                                                                                index_t max_local_iterations
+) {
   
   //vec3 pold = ci.p;
   vec3 pnew = pold;
@@ -396,7 +354,7 @@ vec3 multicolor_parallel_no_g_sor_prox::solve_one_contact_problem_alart_curnier(
   bool converged = false;
   bool diverged  = false;
   unsigned int iteration = 0;
-  while(!converged && !diverged && iteration < m_max_local_iterations) {
+  while(!converged && !diverged && iteration < max_local_iterations) {
     //solve for new normal percussion
     pnew[0] = pold[0] - r[0] * (g_ii[0][0] * pold[0] + g_ii[0][1] * pold[1] + g_ii[0][2] * pold[2] + b[0]);
     if(pnew[0] <= 0) {
@@ -433,114 +391,38 @@ vec3 multicolor_parallel_no_g_sor_prox::solve_one_contact_problem_alart_curnier(
  * with a local nonlinear solver
  */
 prox_result multicolor_parallel_no_g_sor_prox::run() {
-  bool converged          = false;
-  bool diverged           = false;
-  unsigned int iteration  = 0;
-  while(!converged && !diverged && iteration < m_max_global_iterations) {
-    converged = true;
-    
-    for(index_t i = 0; i < m_contacts.size(); ++i) {
-      contact & ci = m_contacts[i];
-      vec3 rhs = ci.b;
-      index_t body0_id = boost::get<0>(ci.key);
-      index_t body1_id = boost::get<1>(ci.key);
-      
-      //get contributions from body 0
-      vec4 const & inertia0_inv = m_inertia_inv[body0_id];
-      vec4 & v0                 = m_v[body0_id];
-      vec4 & o0                 = m_o[body0_id];
-      for(int i = 0; i < 3; ++i) {
-        real xi_trans_i = 0;
-        real xi_rot_i = 0;
-        for(int j = 0; j < 3; ++j) {
-          xi_trans_i = xi_trans_i + ci.w0_trans[j][i] * v0[j];
-          xi_rot_i   = xi_rot_i   + ci.w0_rot[j][i] * o0[j + 1];
-        }
-        rhs[i] = rhs[i] + (xi_trans_i + xi_rot_i);
-      }
-      if(body1_id < m_inertia_inv.size()) {
-        //get contributions from body 1
-        vec4 const & inertia1_inv = m_inertia_inv[body1_id];
-        vec4 & v1                 = m_v[body1_id];
-        vec4 & o1                 = m_o[body1_id];
-        for(int i = 0; i < 3; ++i) {
-          real xi_trans_i = 0;
-          real xi_rot_i = 0;
-          for(int j = 0; j < 3; ++j) {
-            xi_trans_i = xi_trans_i - ci.w0_trans[j][i] * v1[j];
-            xi_rot_i   = xi_rot_i   + ci.w1_rot[j][i] * o1[j + 1];
-          }
-          rhs[i] = rhs[i] + (xi_trans_i + xi_rot_i);
-        }
-      }
-      
-      vec3 pold = m_percussions[i];
-      
-      for(int i = 0; i < 3; ++i) {
-        real r = 0;
-        for(int j = 0; j < 3; ++j) {
-          r = r + ci.g_ii[i][j] * pold[j];
-        }
-        rhs[i] = rhs[i] - r;
-      }
-      
-      
-      //step 1. solve a single contact under the assumption, that all others are known
-      vec3 pnew = solve_one_contact_problem_alart_curnier(ci, pold, rhs, m_tol_rel, m_tol_abs);
-      
-      using std::abs;
-      
-      vec3 dp = pnew - pold;
-      
-      
-      //save new percussion to global vector
-      m_percussions[i] = pnew;
-      
-      //apply dp to body velocities
-      
-      for(int j = 0; j < 3; ++j) {
-        real wp_dv_j = 0.0;
-        real wp_do_j = 0.0;
-        for(int k = 0; k < 3; ++k) {
-          wp_dv_j = wp_dv_j + ci.w0_trans[j][k] * dp[k];
-          wp_do_j = wp_do_j + ci.w0_rot[j][k] * dp[k];
-        }
-        v0[j]      = v0[j] + inertia0_inv[0] * wp_dv_j;
-        o0[j + 1]  = o0[j + 1] + inertia0_inv[j + 1] * wp_do_j;
-      }
-      
-      if(body1_id < m_inertia_inv.size()) {
-        //body1
-        vec4 & v1 = m_v[body1_id];
-        vec4 & o1 = m_o[body1_id];
-        vec4 const & inertia1_inv = m_inertia_inv[body1_id];
-        for(int j = 0; j < 3; ++j) {
-          real wp_dv_j = 0.0;
-          real wp_do_j = 0.0;
-          for(int k = 0; k < 3; ++k) {
-            wp_dv_j = wp_dv_j - ci.w0_trans[j][k] * dp[k];
-            wp_do_j = wp_do_j + ci.w1_rot[j][k] * dp[k];
-          }
-          v1[j]      = v1[j] + inertia1_inv[0] * wp_dv_j;
-          o1[j + 1]  = o1[j + 1] + inertia1_inv[j + 1] * wp_do_j;
-        }
-      }
-      
-      //step 2. check for global convergence
-      converged &= 
-      abs(dp[0]) <= m_tol_rel * abs(pnew[0]) + m_tol_abs
-      &&  abs(dp[1]) <= m_tol_rel * abs(pnew[1]) + m_tol_abs
-      &&  abs(dp[2]) <= m_tol_rel * abs(pnew[2]) + m_tol_abs;
-      //and check whether a force became infinite or NaN
-      using std::isinf; using std::isnan;
-      diverged 
-      |= isinf(pnew[0]) || isnan(pnew[0])
-      || isinf(pnew[1]) || isnan(pnew[1])
-      || isinf(pnew[2]) || isnan(pnew[2]);
-    }
-    ++iteration;
+  bool diverged = false, converged = true, done = false;
+  boost::thread_group workers;
+  barrier b(m_worker_count);
+  index_t iteration = 0;
+  
+  int w;
+  //create worker threads
+  for(w = 0; w < m_worker_count - 1; ++w) {
+    workers.create_thread(
+                          prox_worker(
+                                      m_subproblems[w], m_percussions, m_contacts,
+                                      m_v, m_o, m_inertia_inv,
+                                      m_tol_rel, m_tol_abs,
+                                      m_max_local_iterations,
+                                      converged, diverged, done, b
+                                      )
+                          );
   }
-  std::cout << "done\n    # iterations = " << iteration << std::endl;
+  prox_master m(
+                m_subproblems[w], m_percussions, m_contacts,
+                m_v, m_o, m_inertia_inv,
+                m_tol_rel, m_tol_abs,
+                m_max_global_iterations, m_max_local_iterations,
+                iteration,
+                converged, diverged, done, b
+                );
+  
+  m();
+  workers.join_all();
+#ifdef DEBUG_MESSAGES
+  std::cout << "# iterations = " << iteration << std::endl;
+#endif
   return
   converged ? CONVERGED
   : (diverged ? DIVERGED
@@ -554,7 +436,7 @@ multicolor_parallel_no_g_sor_prox::prox_worker::prox_worker(
                                                             real tol_rel_, real tol_abs_, index_t max_local_iterations_, 
                                                             volatile bool & converged_,  volatile bool & diverged_, volatile bool & done_,
                                                             barrier & b_
-                                                            )  : sub(sub_), percussions(percussions_), 
+                                                            )  : sub(sub_), percussions(percussions_), contacts(contacts_),
 v(v_), o(o_), inertia_inv(inertia_inv_),
 tol_rel(tol_rel_), tol_abs(tol_abs_), max_local_iterations(max_local_iterations_),
 converged(converged_), diverged(diverged_), done(done_), b(b_) { }
@@ -599,7 +481,7 @@ multicolor_parallel_no_g_sor_prox::prox_master::prox_master(
                                                          real tol_rel_, real tol_abs_, index_t max_global_iterations_, index_t max_local_iterations_, index_t & iteration_,
                                                          volatile bool & converged_,  volatile bool & diverged_, volatile bool & done_,
                                                          barrier & b_
-                                                         ) : sub(sub_), percussions(percussions_),
+                                                         ) : sub(sub_), percussions(percussions_), contacts(contacts_),
 v(v_), o(o_), inertia_inv(inertia_inv_),
 tol_rel(tol_rel_), tol_abs(tol_abs_), iteration(iteration_),
 max_global_iterations(max_global_iterations_), max_local_iterations(max_local_iterations_),
@@ -649,7 +531,7 @@ void multicolor_parallel_no_g_sor_prox::prox_master::operator()() {
 }
 
 
-static std::pair<bool, bool> multicolor_parallel_g_sor_prox::work_function(
+std::pair<bool, bool> multicolor_parallel_no_g_sor_prox::work_function(
                                            sub_problem const & sub,
                                            index_t & g_i,
                                            index_t g_end,
@@ -657,7 +539,7 @@ static std::pair<bool, bool> multicolor_parallel_g_sor_prox::work_function(
                                            std::vector<contact> const & contacts,
                                            std::vector<vec4> & v, 
                                            std::vector<vec4> & o,
-                                           std::vector<vec4> const & inertiva_inv, 
+                                           std::vector<vec4> const & inertia_inv, 
                                            real tol_rel, real tol_abs,
                                            index_t max_local_iterations
                                            ) {
@@ -743,8 +625,8 @@ static std::pair<bool, bool> multicolor_parallel_g_sor_prox::work_function(
     //body 1
     if(body1_id < inertia_inv.size()) {
       
-      vec4 & v1 = m_v[body1_id];
-      vec4 & o1 = m_o[body1_id];
+      vec4 & v1 = v[body1_id];
+      vec4 & o1 = o[body1_id];
       vec4 const & inertia1_inv = inertia_inv[body1_id];
       for(int j = 0; j < 3; ++j) {
         real wp_dv_j = 0.0;

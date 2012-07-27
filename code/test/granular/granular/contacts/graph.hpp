@@ -62,4 +62,34 @@ template <typename T>
     independent_contact_set_container & independent_sets
   );
 
+
+//implementation
+
+void insert_into_independent_sets(
+                                  std::vector<index_t> &                      colors,
+                                  std::vector<std::vector<index_t> > const &  cliques,
+                                  independent_contact_set_container &         independent_sets,
+                                  index_t vid, collider::contact::key_type const & vertex
+                                  );
+
+template <typename T>
+void build_independent_sets(
+                            cliqued_graph<T> const &            graph,
+                            std::vector<index_t> &              colors,
+                            independent_contact_set_container & independent_sets
+                            ) {
+  //reset independent sets
+  independent_sets.clear();
+  //reset colors
+  colors.clear();
+  colors.resize(graph.size(), 0xffffffff);
+  
+  //iterate over all nodes assigning them new colors
+  for(index_t i = 0; i < graph.size(); ++i) {
+    //get new node from node list
+    T const & ci = graph.nodes[i];
+    insert_into_independent_sets(colors, graph.cliques, independent_sets, i, ci.key);
+  }
+}
+
 #endif
