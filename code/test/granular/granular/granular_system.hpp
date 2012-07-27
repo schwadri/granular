@@ -24,6 +24,8 @@ public:
   
   void run_par_per_color_barrier();
   
+  void run_par_no_g_per_color_barrier();
+  
   void run_par_chaotic();
   
   void run_par_chaotic_contact_iteration();
