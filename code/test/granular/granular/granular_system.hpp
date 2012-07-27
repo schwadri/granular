@@ -153,9 +153,7 @@ public:
   
   /** \group contact graph structures*/
   //@{
-  cliqued_graph<collider::contact>          m_contact_graph;
-  std::vector<std::vector<index_t> >        m_body_to_contact_map;
-  std::vector<collider::contact>            m_contacts;
+  cliqued_graph<collider::contact>          m_contacts;
   //@}
   
 };

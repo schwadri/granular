@@ -160,13 +160,7 @@ void granular_system::create_sphere_sphere_contact_seq(index_t body0_id, index_t
   c.overlap  = overlap;
   c.x = p;
   
-  m_contact_graph.insert(body0_id, body1_id, c);
-  
-  //FIXME: remove legacy
-  m_contacts.push_back(c);
-  m_body_to_contact_map[body0_id].push_back(m_contacts.size() - 1);
-  if(!is_boundary(body1_id))
-    m_body_to_contact_map[body1_id].push_back(m_contacts.size() - 1);
+  m_contacts.insert(body0_id, body1_id, c);
 }
 
 void granular_system::collide_sphere_sphere_seq(index_t body0_id, index_t body1_id, vec3 const & x0, real radius0, vec3 const & x1, real radius1) {
@@ -258,12 +252,7 @@ void granular_system::narrow_phase_cell_vs_cell_seq(index_t cell0_begin, index_t
  bodies contained in their eight neighbouring cells
  */
 void granular_system::narrow_phase_seq() {
-  m_contact_graph.clear();
-  
-  //FIXME: remove legacy
   m_contacts.clear();
-  for(index_t i = 0; i < m_body_to_contact_map.size(); ++i)
-    m_body_to_contact_map[i].clear();
   
   //iterate over all non-empty cells and perform pairwise collision detection
   for(index_t i = 0; i < m_nonempty_cells.size(); ++i) {
@@ -364,7 +353,7 @@ void granular_system::narrow_phase_seq() {
     }
   }
 #ifdef DEBUG_MESSAGES
-  std::cout << "done\n    # contacts = " << m_contact_graph.size() << std::endl;
+  std::cout << "done\n    # contacts = " << m_contacts.size() << std::endl;
 #endif
 }
 

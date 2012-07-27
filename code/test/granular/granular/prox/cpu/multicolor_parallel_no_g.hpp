@@ -11,7 +11,6 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
-#include "../../contacts/graph.hpp"
 
 /** \brief sequential sor prox cpu reference implementation*/
 struct multicolor_parallel_no_g_sor_prox {

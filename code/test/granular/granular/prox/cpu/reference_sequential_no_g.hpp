@@ -11,7 +11,6 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
-#include "../../contacts/independent_sets.hpp"
 
 /** \brief sequential sor prox cpu reference implementation*/
 struct reference_sequential_no_g_sor_prox {

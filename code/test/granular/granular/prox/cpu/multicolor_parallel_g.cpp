@@ -229,7 +229,7 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
   
   void multicolor_parallel_g_sor_prox::distribute_work(
                        granular_system const & sys,
-                       std::vector<collider::contact> const & contacts,
+                       cliqued_graph<collider::contact> const & contacts,
                        independent_contact_set_container const &  independent_sets,
                        std::vector<sub_problem> & work
                        ) {
@@ -264,7 +264,7 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
         for(std::vector<index_t>::const_iterator citer = cbegin; citer < cend; ++citer) {
           contact c;
           //transform collider::contact into solver::contact
-          collider_contact_to_solver_contact(sys, contacts[*citer], c);
+          collider_contact_to_solver_contact(sys, contacts.nodes[*citer], c);
           //insert into this worker's queue
           my_work.contacts.push_back(c);
           //update the global to local contact map
@@ -333,7 +333,6 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
       index_t ci_body1_id = boost::get<1>(ci.key);
       
       //connect to all contacts from body0
-      //std::vector<index_t> const & b0_contacts = sys.m_body_to_contact_map[ci_body0_id];
       std::vector<index_t> const & b0_contacts = m_body_to_contact_map[ci_body0_id];
       for(index_t j = 0; j < b0_contacts.size(); ++j) {
         index_t g_j = b0_contacts[j];
@@ -397,7 +396,6 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
       
       if(!sys.is_boundary(ci_body1_id)) {
         //connect to all contacts from body1
-        //std::vector<index_t> const & b1_contacts = sys.m_body_to_contact_map[ci_body1_id];
         std::vector<index_t> const & b1_contacts = m_body_to_contact_map[ci_body1_id];
         for(index_t j = 0; j < b1_contacts.size(); ++j) {
           index_t g_j = b1_contacts[j];
@@ -703,14 +701,13 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
   
   void multicolor_parallel_g_sor_prox::setup_contacts(
                       granular_system const &                 sys,
-                      std::vector<collider::contact> const &  contacts,
-                      std::vector<std::vector<index_t> > &    cliques
-                      ) {
+                      cliqued_graph<collider::contact> const &  contacts
+) {
 #ifdef DEBUG_MESSAGES
     std::cout << "build independent contact sets" <<std::endl;
 #endif
     //step 0. build independent sets
-    build_independent_contact_sets(contacts, m_colors, cliques, m_independent_sets);
+    build_independent_sets(contacts, m_colors, m_independent_sets);
 #ifdef DEBUG_MESSAGES
     std::cout << "decompose multi contact problem and setup solver contacts" <<std::endl;
 #endif

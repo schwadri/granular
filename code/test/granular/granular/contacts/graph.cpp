@@ -9,13 +9,13 @@
 
 #include <iostream>
 
-/*FIXME: duplicate symbol
- void insert_into_independent_sets(
-                                  std::vector<index_t> &                      colors,
-                                  std::vector<std::vector<index_t> > const &  cliques,
-                                  independent_contact_set_container &         independent_sets,
-                                  index_t vid, collider::contact::key_type const & vertex
-                                  ) {
+
+void insert_into_independent_sets(
+                                std::vector<index_t> &                      colors,
+                                std::vector<std::vector<index_t> > const &  cliques,
+                                independent_contact_set_container &         independent_sets,
+                                index_t vid, collider::contact::key_type const & vertex
+                                ) {
   
   index_t clique0_id = boost::get<0>(vertex);
   index_t clique1_id = boost::get<1>(vertex);
@@ -55,5 +55,5 @@
   } else {
     independent_sets[color].push_back(vid);
   }
-}*/
+}
 

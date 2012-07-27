@@ -231,7 +231,7 @@ void chaotic_parallel_g_contact_read_write_lock_sor_prox::collider_contact_to_so
 
 void chaotic_parallel_g_contact_read_write_lock_sor_prox::distribute_work(
                                                                   granular_system const & sys,
-                                                                  std::vector<collider::contact> const & contacts,
+                                                                  cliqued_graph<collider::contact> const & contacts,
                                                                   independent_contact_set_container const &  independent_sets,
                                                                   std::vector<sub_problem> & work
                                                                   ) {
@@ -265,7 +265,7 @@ void chaotic_parallel_g_contact_read_write_lock_sor_prox::distribute_work(
       for(std::vector<index_t>::const_iterator citer = cbegin; citer < cend; ++citer) {
         contact c;
         //transform collider::contact into solver::contact
-        collider_contact_to_solver_contact(sys, contacts[*citer], c);
+        collider_contact_to_solver_contact(sys, contacts.nodes[*citer], c);
         //insert into this worker's queue
         my_work.contacts.push_back(c);
         //update the global to local contact map
@@ -737,14 +737,13 @@ prox_result chaotic_parallel_g_contact_read_write_lock_sor_prox::run() {
 
 void chaotic_parallel_g_contact_read_write_lock_sor_prox::setup_contacts(
                                                                  granular_system const &                 sys,
-                                                                 std::vector<collider::contact> const &  contacts,
-                                                                 std::vector<std::vector<index_t> > &    cliques
-                                                                 ) {
+                                                                 cliqued_graph<collider::contact> const &  contacts
+) {
 #ifdef DEBUG_MESSAGES
   std::cout << "build independent contact sets" <<std::endl;
 #endif
   //step 0. build independent sets
-  build_independent_contact_sets(contacts, m_colors, cliques, m_independent_sets);
+  build_independent_sets(contacts, m_colors, m_independent_sets);
 #ifdef DEBUG_MESSAGES
   std::cout << "decompose multi contact problem and setup solver contacts" <<std::endl;
 #endif

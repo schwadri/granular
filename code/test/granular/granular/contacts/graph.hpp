@@ -44,6 +44,11 @@ template <typename T>
     inline size_t size() const {
       return nodes.size();
     }
+    
+    /** returns true if the graph is empty*/
+    inline bool empty() const {
+      return nodes.empty();
+    }
   };
 
 /** swap data of two cliqued graphs*/

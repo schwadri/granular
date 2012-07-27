@@ -11,7 +11,6 @@
 
 #include "../../common.hpp"
 #include "../../granular_system.hpp"
-#include "../../contacts/independent_sets.hpp"
 
 /*  further ways of optimization
  - remove barriers and directly introduce data dependencies using atomic counters
@@ -23,8 +22,6 @@
  */
 /** \brief parallel sor prox on the cpu*/
 struct multicolor_parallel_g_sor_prox {
-  typedef std::vector<index_t>                  independent_contact_set;
-  typedef std::vector<independent_contact_set>  independent_contact_set_container;
   
   /** \brief contact representation which is used inside the solver
    */
@@ -66,7 +63,7 @@ struct multicolor_parallel_g_sor_prox {
   
   void distribute_work(
                        granular_system const & sys,
-                       std::vector<collider::contact> const & contacts,
+                       cliqued_graph<collider::contact> const & contacts,
                        independent_contact_set_container const &  independent_sets,
                        std::vector<sub_problem> & work
                        );
@@ -141,9 +138,8 @@ struct multicolor_parallel_g_sor_prox {
   
   void setup_contacts(
                       granular_system const &                 sys,
-                      std::vector<collider::contact> const &  contacts,
-                      std::vector<std::vector<index_t> > &    cliques
-                      );
+                      cliqued_graph<collider::contact> const &  contacts);
+  
   void apply_percussions(granular_system & sys);  
   
   real            m_alpha;
