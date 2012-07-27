@@ -242,11 +242,11 @@ void multicolor_parallel_no_g_sor_prox::setup_contacts(
   reorder_contacts_by_colors(contacts, m_independent_sets);*/
   
 #ifdef DEBUG_MESSAGES_GLOBAL_PHASES
-  std::cout << "done\n  setup solver contact structures..." << std::flush;
+  std::cout << "  setup solver contact structures..." << std::flush;
 #endif
   
 #ifdef DEBUG_MESSAGES
-  std::cout << "done\n  decompose multi contact problem and setup solver contacts..." <<std::endl;
+  std::cout << "done\n  decompose multi contact problem and setup solver contacts..." <<std::flush;
 #endif
   //step 1. decompose multicontact problem into sub-problems for the worker threads
   //        and setup those sub-problems
@@ -421,7 +421,7 @@ prox_result multicolor_parallel_no_g_sor_prox::run() {
   m();
   workers.join_all();
 #ifdef DEBUG_MESSAGES
-  std::cout << "# iterations = " << iteration << std::endl;
+  std::cout << "done\n  # iterations = " << iteration << std::endl;
 #endif
   return
   converged ? CONVERGED
