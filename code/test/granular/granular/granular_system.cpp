@@ -129,44 +129,6 @@ void granular_system::construct_tangential_vectors(mat33 & a_ic) {
   a_ic[2][2] = t2[2];
 }
   
-void granular_system::apply_contact_percussions_seq() {
-  for(int i = 0; i < m_solver_contacts.size(); ++i) {
-    solver::contact const & ci = m_solver_contacts[i];
-    
-    //body0
-    vec4 & dt_v0 = m_dv[boost::get<0>(ci.key)];
-    vec4 & dt_o0 = m_do[boost::get<0>(ci.key)];
-    vec4 const & inertia0_inv = m_inertia_inv[boost::get<0>(ci.key)];
-    for(int j = 0; j < 3; ++j) {
-      real wp_dv_j = 0.0;
-      real wp_do_j = 0.0;
-      for(int k = 0; k < 3; ++k) {
-        wp_dv_j = wp_dv_j + ci.w0_trans[j][k] * ci.p[k];
-        wp_do_j = wp_do_j + ci.w0_rot[j][k] * ci.p[k];
-      }
-      dt_v0[j]      = dt_v0[j] + inertia0_inv[0] * wp_dv_j;
-      dt_o0[j + 1]  = dt_o0[j + 1] + inertia0_inv[j + 1] * wp_do_j;
-    }
-    
-    if(!is_boundary(boost::get<1>(ci.key))) {
-      //body1
-      vec4 & dt_v1 = m_dv[boost::get<1>(ci.key)];
-      vec4 & dt_o1 = m_do[boost::get<1>(ci.key)];
-      vec4 const & inertia1_inv = m_inertia_inv[boost::get<1>(ci.key)];
-      for(int j = 0; j < 3; ++j) {
-        real wp_dv_j = 0.0;
-        real wp_do_j = 0.0;
-        for(int k = 0; k < 3; ++k) {
-          wp_dv_j = wp_dv_j - ci.w0_trans[j][k] * ci.p[k];
-          wp_do_j = wp_do_j + ci.w1_rot[j][k] * ci.p[k];
-        }
-        dt_v1[j]      = dt_v1[j] + inertia1_inv[0] * wp_dv_j;
-        dt_o1[j + 1]  = dt_o1[j + 1] + inertia1_inv[j + 1] * wp_do_j;
-      }
-    }
-  }
-}
-  
 /* add the delta_velocities's to the velocities
  */
 void granular_system::update_u_seq() {
@@ -181,24 +143,27 @@ void granular_system::update_u_seq() {
 }
 
 void granular_system::create_sphere_sphere_contact_seq(index_t body0_id, index_t body1_id, vec3 const & p, mat33 const & a_ic, real overlap) {
-  collider::contact nc;
+  collider::contact c;
   
   //make sure that body1_id > body0_id
   if(body1_id < body0_id) {
     using std::swap;
     swap(body1_id, body0_id);
-    nc.a_ic     = -a_ic;
+    c.a_ic     = -a_ic;
   } else {
-    nc.a_ic     = a_ic;
+    c.a_ic     = a_ic;
   }
   
   //set contact key (used for warmstarting)
-  nc.key = boost::make_tuple(body0_id, body1_id, 0);    
+  c.key = boost::make_tuple(body0_id, body1_id, 0);    
   
-  nc.overlap  = overlap;
-  nc.x = p;
+  c.overlap  = overlap;
+  c.x = p;
   
-  m_contacts.push_back(nc);
+  m_contact_graph.insert(body0_id, body1_id, c);
+  
+  //FIXME: remove legacy
+  m_contacts.push_back(c);
   m_body_to_contact_map[body0_id].push_back(m_contacts.size() - 1);
   if(!is_boundary(body1_id))
     m_body_to_contact_map[body1_id].push_back(m_contacts.size() - 1);
@@ -293,6 +258,9 @@ void granular_system::narrow_phase_cell_vs_cell_seq(index_t cell0_begin, index_t
  bodies contained in their eight neighbouring cells
  */
 void granular_system::narrow_phase_seq() {
+  m_contact_graph.clear();
+  
+  //FIXME: remove legacy
   m_contacts.clear();
   for(index_t i = 0; i < m_body_to_contact_map.size(); ++i)
     m_body_to_contact_map[i].clear();
@@ -396,7 +364,7 @@ void granular_system::narrow_phase_seq() {
     }
   }
 #ifdef DEBUG_MESSAGES
-  std::cout << "done\n    # contacts = " << m_contacts.size() << std::endl;
+  std::cout << "done\n    # contacts = " << m_contact_graph.size() << std::endl;
 #endif
 }
 

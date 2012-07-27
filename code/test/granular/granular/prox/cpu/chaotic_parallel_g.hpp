@@ -62,11 +62,11 @@ struct chaotic_parallel_g_sor_prox {
                                           );
   
   void distribute_work(
-                       granular_system const & sys,
-                       std::vector<collider::contact> const & contacts,
-                       independent_contact_set_container const &  independent_sets,
-                       std::vector<sub_problem> & work
-                       );
+    granular_system const & sys,
+    std::vector<collider::contact> const & contacts,
+    independent_contact_set_container const &  independent_sets,
+    std::vector<sub_problem> & work
+  );
   
   /** set the up the off-diagonal terms of the delassus matrix in block-csr form
    *  for a single worker
@@ -74,10 +74,11 @@ struct chaotic_parallel_g_sor_prox {
   void setup_bcsr_gij_seq(index_t sub_id, sub_problem & wp, granular_system const & sys);
   
   static vec3 solve_one_contact_problem_alart_curnier(
-                                                      contact const & ci, vec3 pold, vec3 const & b,
-                                                      real tol_rel, real tol_abs,
-                                                      index_t max_local_iterations
-                                                      );  
+    contact const & ci, vec3 pold, vec3 const & b,
+    real tol_rel, real tol_abs,
+    index_t max_local_iterations
+  );
+
   static bool work_function(
                                              sub_problem & sub,
                                              index_t & l_i,

@@ -11,11 +11,13 @@
 
 multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
   index_t worker_count_,
+  real alpha_,
   real tol_rel_,
   real tol_abs_,
   index_t max_global_iterations_,
   index_t max_local_iterations_
-) : m_worker_count(worker_count_),
+) : m_alpha(alpha_),
+    m_worker_count(worker_count_),
     m_tol_rel(tol_rel_), m_tol_abs(tol_abs_),
     m_max_global_iterations(max_global_iterations_),
     m_max_local_iterations(max_local_iterations_) {
@@ -28,8 +30,7 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
                                           collider::contact const & c, contact & nc
                                           ) {
     
-    //FIXME: ugly code
-    real const & m_alpha = sys.m_alpha;    
+    //FIXME: ugly code 
     real const & m_mu = sys.m_mu;        ///< global friction coefficient
     vec2 const & m_epsilon = sys.m_epsilon;   ///< global restitution coefficients for normal and tangential direction 
     std::vector<vec4> const & m_inertia = sys.m_inertia;      ///< mass and inertia in body fixed frame
@@ -108,7 +109,6 @@ multicolor_parallel_g_sor_prox::multicolor_parallel_g_sor_prox(
       vec3 epsilon = (vec3){m_epsilon[0], m_epsilon[1], m_epsilon[1]};
       
       nc.mu       = m_mu;
-      //nc.epsilon  = m_epsilon;
       
       for(int i = 0; i < 3; ++i) {
         real gamma_trans_i = 0;

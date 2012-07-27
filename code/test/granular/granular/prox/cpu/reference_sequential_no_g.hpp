@@ -34,6 +34,7 @@ struct reference_sequential_no_g_sor_prox {
   
   reference_sequential_no_g_sor_prox(
                                 real tol_rel_, real tol_abs_,
+                                real alpha_,
                                 index_t max_global_iterations, index_t max_local_iterations
                                 );
   
@@ -62,6 +63,7 @@ struct reference_sequential_no_g_sor_prox {
    */
   prox_result run();
   
+  real    m_alpha;
   real    m_tol_rel, m_tol_abs;
   index_t m_max_global_iterations,
   m_max_local_iterations;
@@ -76,7 +78,7 @@ struct reference_sequential_no_g_sor_prox {
   std::vector<vec4>     m_inertia_inv;    ///< inverse mass and inertia in body fixed frame
   std::vector<contact>  m_contacts;       ///< global contact structure vector
 
-  std::vector<index_t>  m_colors;         ///< used during contact ordering
+  std::vector<index_t>              m_colors;           ///< used during contact ordering
   independent_contact_set_container m_independent_sets; ///< used during contact ordering
   //@}
   

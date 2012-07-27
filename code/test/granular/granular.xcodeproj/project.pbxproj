@@ -21,6 +21,8 @@
 		47C11C9B15B745CF0089E046 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C11C9A15B745CF0089E046 /* libboost_filesystem.a */; };
 		47C11CA515B759AC0089E046 /* granular_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47C11CA415B759AC0089E046 /* granular_system.cpp */; };
 		47F098C015BC0978001A458B /* chaotic_parallel_g_contact_iteration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47F098BF15BC0978001A458B /* chaotic_parallel_g_contact_iteration.cpp */; };
+		47F37EC915C2B42A001113D4 /* multicolor_parallel_no_g.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47F37EC815C2B42A001113D4 /* multicolor_parallel_no_g.cpp */; };
+		47F37ECC15C2D6D6001113D4 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47F37ECB15C2D6D6001113D4 /* graph.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4707777415BEE14C005DDE0E /* chaotic_parallel_g_contact_read_write_lock.hpp */ = {isa = PBXFileReference; path = chaotic_parallel_g_contact_read_write_lock.hpp; sourceTree = "<group>"; };
+		4707777415BEE14C005DDE0E /* chaotic_parallel_g_contact_read_write_lock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chaotic_parallel_g_contact_read_write_lock.hpp; sourceTree = "<group>"; };
 		4707777615BEE186005DDE0E /* chaotic_parallel_g_contact_read_write_lock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chaotic_parallel_g_contact_read_write_lock.cpp; sourceTree = "<group>"; };
 		4707777815BEF551005DDE0E /* reference_sequential_no_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reference_sequential_no_g.hpp; sourceTree = "<group>"; };
 		4707777915BEF562005DDE0E /* reference_sequential_no_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reference_sequential_no_g.cpp; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		4707777D15BEFA1E005DDE0E /* independent_sets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = independent_sets.cpp; sourceTree = "<group>"; };
 		472368B615BB218A00308395 /* reference_sequential_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reference_sequential_g.hpp; sourceTree = "<group>"; };
 		472368B815BB21A200308395 /* reference_sequential_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reference_sequential_g.cpp; sourceTree = "<group>"; };
-		472368BA15BB469100308395 /* chaotic_parallel_g.hpp */ = {isa = PBXFileReference; path = chaotic_parallel_g.hpp; sourceTree = "<group>"; };
+		472368BA15BB469100308395 /* chaotic_parallel_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chaotic_parallel_g.hpp; sourceTree = "<group>"; };
 		472368BB15BB46A300308395 /* chaotic_parallel_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chaotic_parallel_g.cpp; sourceTree = "<group>"; };
 		47342E2B15AEF2D9005198A2 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libboost_system.a; sourceTree = "<group>"; };
 		47342E2C15AEF2D9005198A2 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libboost_thread.a; sourceTree = "<group>"; };
@@ -57,11 +59,15 @@
 		47C11C9815B7458D0089E046 /* vis_lite_writer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vis_lite_writer.hpp; sourceTree = "<group>"; };
 		47C11C9A15B745CF0089E046 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libboost_filesystem.a; sourceTree = "<group>"; };
 		47C11CA115B754350089E046 /* multicolor_parallel_g.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = multicolor_parallel_g.cpp; sourceTree = "<group>"; };
-		47C11CA215B754350089E046 /* multicolor_parallel_g.hpp */ = {isa = PBXFileReference; path = multicolor_parallel_g.hpp; sourceTree = "<group>"; };
+		47C11CA215B754350089E046 /* multicolor_parallel_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multicolor_parallel_g.hpp; sourceTree = "<group>"; };
 		47C11CA315B759840089E046 /* granular_system.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = granular_system.hpp; sourceTree = "<group>"; };
 		47C11CA415B759AC0089E046 /* granular_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = granular_system.cpp; sourceTree = "<group>"; };
-		47F098BD15BC0965001A458B /* chaotic_parallel_g_contact_iteration.hpp */ = {isa = PBXFileReference; path = chaotic_parallel_g_contact_iteration.hpp; sourceTree = "<group>"; };
+		47F098BD15BC0965001A458B /* chaotic_parallel_g_contact_iteration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chaotic_parallel_g_contact_iteration.hpp; sourceTree = "<group>"; };
 		47F098BF15BC0978001A458B /* chaotic_parallel_g_contact_iteration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chaotic_parallel_g_contact_iteration.cpp; sourceTree = "<group>"; };
+		47F37EC715C2B419001113D4 /* multicolor_parallel_no_g.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multicolor_parallel_no_g.hpp; sourceTree = "<group>"; };
+		47F37EC815C2B42A001113D4 /* multicolor_parallel_no_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = multicolor_parallel_no_g.cpp; sourceTree = "<group>"; };
+		47F37ECA15C2CDEE001113D4 /* graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph.hpp; sourceTree = "<group>"; };
+		47F37ECB15C2D6D6001113D4 /* graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,8 @@
 			children = (
 				4707777C15BEF9FB005DDE0E /* independent_sets.hpp */,
 				4707777D15BEFA1E005DDE0E /* independent_sets.cpp */,
+				47F37ECA15C2CDEE001113D4 /* graph.hpp */,
+				47F37ECB15C2D6D6001113D4 /* graph.cpp */,
 			);
 			path = contacts;
 			sourceTree = "<group>";
@@ -142,6 +150,8 @@
 				47F098BF15BC0978001A458B /* chaotic_parallel_g_contact_iteration.cpp */,
 				47C11CA215B754350089E046 /* multicolor_parallel_g.hpp */,
 				47C11CA115B754350089E046 /* multicolor_parallel_g.cpp */,
+				47F37EC715C2B419001113D4 /* multicolor_parallel_no_g.hpp */,
+				47F37EC815C2B42A001113D4 /* multicolor_parallel_no_g.cpp */,
 				4707777415BEE14C005DDE0E /* chaotic_parallel_g_contact_read_write_lock.hpp */,
 				4707777615BEE186005DDE0E /* chaotic_parallel_g_contact_read_write_lock.cpp */,
 				472368B615BB218A00308395 /* reference_sequential_g.hpp */,
@@ -212,6 +222,8 @@
 				4707777715BEE186005DDE0E /* chaotic_parallel_g_contact_read_write_lock.cpp in Sources */,
 				4707777A15BEF562005DDE0E /* reference_sequential_no_g.cpp in Sources */,
 				4707777E15BEFA1E005DDE0E /* independent_sets.cpp in Sources */,
+				47F37EC915C2B42A001113D4 /* multicolor_parallel_no_g.cpp in Sources */,
+				47F37ECC15C2D6D6001113D4 /* graph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

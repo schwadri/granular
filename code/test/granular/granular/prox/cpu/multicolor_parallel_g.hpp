@@ -54,6 +54,7 @@ struct multicolor_parallel_g_sor_prox {
   
   multicolor_parallel_g_sor_prox(
     index_t worker_count_,
+    real alpha_,
     real tol_rel_, real tol_abs_,
     index_t max_global_iterations_, index_t max_local_iterations_
   );
@@ -145,9 +146,11 @@ struct multicolor_parallel_g_sor_prox {
                       );
   void apply_percussions(granular_system & sys);  
   
-  real                                      m_tol_rel, m_tol_abs;
-  unsigned int                              m_max_global_iterations, m_max_local_iterations;
-  unsigned int                              m_worker_count;
+  real            m_alpha;
+  real            m_tol_rel, m_tol_abs;
+  unsigned int    m_max_global_iterations, m_max_local_iterations;
+  unsigned int    m_worker_count;
+
   /** the global percussion vector. it contains the percussions of all the contacts.
    *  the percussions for a sub-problem w lies in a sequential range [sub_offset[w], sub_offset[w + 1])
    *  of the global percussion vector.

@@ -11,9 +11,10 @@
 #include "reference_sequential_no_g.hpp"
 
 reference_sequential_no_g_sor_prox::reference_sequential_no_g_sor_prox(
-                                                             real tol_rel_, real tol_abs_,
-                                                             index_t max_global_iterations_, index_t max_local_iterations_
-                                                             ) : m_tol_rel(tol_rel_), m_tol_abs(tol_abs_), 
+  real alpha_,
+  real tol_rel_, real tol_abs_,
+  index_t max_global_iterations_, index_t max_local_iterations_
+) : m_alpha(alpha_), m_tol_rel(tol_rel_), m_tol_abs(tol_abs_), 
 m_max_global_iterations(max_global_iterations_), m_max_local_iterations(max_local_iterations_) 
 { }
 
@@ -21,9 +22,7 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
                                                                        granular_system const & sys,
                                                                        collider::contact const & c, contact & nc
                                                                        ) {
-  
   //FIXME: ugly code
-  real const & m_alpha = sys.m_alpha;    
   real const & m_mu = sys.m_mu;        ///< global friction coefficient
   vec2 const & m_epsilon = sys.m_epsilon;   ///< global restitution coefficients for normal and tangential direction 
   std::vector<vec4> const & m_inertia = sys.m_inertia;      ///< mass and inertia in body fixed frame
@@ -154,9 +153,9 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
     //build g_ii^-1
     nc.g_ii_inv = inverse(nc.g_ii);
     
-    //c = W^T ((1+epsilon)u^b) = (1 + epsilon) gamma^b
-    /* c = (1 + epsilon) (gamma_trans^b + gamma_rot^b)
-     gamma_trans^b = W_trans0^T v_0^b + W_trans0^T v_1^b
+    //b = epsilon W^T u^b = epsilon gamma^b
+    /* b = epsilon (gamma_trans^b + gamma_rot^b)
+     gamma_trans^b = W_trans0^T v_0^b + W_trans1^T v_1^b
      gamma_rot^b   = W_rot0^T o_0^b + W_rot1^T v_1^b
      */
     vec4 const & v0     = m_v[body0_id];
@@ -167,7 +166,6 @@ void reference_sequential_no_g_sor_prox::collider_contact_to_solver_contact(
     vec3 epsilon = (vec3){m_epsilon[0], m_epsilon[1], m_epsilon[1]};
     
     nc.mu       = m_mu;
-    //nc.epsilon  = m_epsilon;
     
     for(int i = 0; i < 3; ++i) {
       real gamma_trans_i = 0;

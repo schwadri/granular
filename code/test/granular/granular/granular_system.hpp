@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "common.hpp"
+#include "contacts/graph.hpp"
 
 class granular_system {
 public:
@@ -43,7 +44,7 @@ public:
    */
   void broad_phase_seq();  
   void construct_tangential_vectors(mat33 & a_ic);  
-  void apply_contact_percussions_seq();  
+
   /* add the delta_velocities's to the velocities
    */
   void update_u_seq();  
@@ -150,20 +151,11 @@ public:
   
   /** \group contact graph structures*/
   //@{
+  cliqued_graph<collider::contact>          m_contact_graph;
   std::vector<std::vector<index_t> >        m_body_to_contact_map;
   std::vector<collider::contact>            m_contacts;
-  std::vector<index_t>                      m_colors;
-  //@}
-  /** \group contact solver data structures*/
-  //@{
-  std::vector<solver::contact>              m_solver_contacts;
-  //bcsr representation of delassus matrix
-  std::vector<mat33>                        m_gij_blocks;
-  std::vector<index_t>                      m_gij_columns;
-  std::vector<index_t>                      m_gij_rows;
   //@}
   
-  independent_contact_set_container m_independent_contact_sets;
 };
 
 #endif

@@ -176,10 +176,9 @@ namespace collider {
     real      overlap;  ///< a measure of translational overlap (i.e. the value of the gap function)
   };
 }
-
+/*
 namespace solver {
-  /** \brief contact representation which is used inside the solver
-   */
+
   struct contact {
     
     collider::contact::key_type  key;
@@ -197,7 +196,7 @@ namespace solver {
   };
   
   
-};
+};*/
 
 /** proximal point method return status values*/
 enum prox_result {
